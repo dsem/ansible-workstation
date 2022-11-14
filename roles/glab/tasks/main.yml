@@ -1,0 +1,6 @@
+---
+- name: Install glab package
+  package:
+    name: glab
+    state: present
+  become: "{{ become_for_package }}"

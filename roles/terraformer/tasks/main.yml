@@ -1,0 +1,10 @@
+---
+- name: Include distribution-specific variables
+  include_vars:
+    file: "{{ os }}.yml"
+
+- name: Download terraformer
+  get_url:
+    url: https://github.com/GoogleCloudPlatform/terraformer/releases/download/0.8.21/{{ release_name }}
+    dest: ~/.local/bin/terraformer
+    mode: 0775

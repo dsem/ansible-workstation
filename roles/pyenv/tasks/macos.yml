@@ -1,0 +1,9 @@
+---
+- name: Install pyenv and the virtualenv plugin
+  package:
+    name: "{{ item }}"
+    state: present
+  become: "{{ become_for_package }}"
+  loop:
+    - pyenv
+    - pyenv-virtualenv

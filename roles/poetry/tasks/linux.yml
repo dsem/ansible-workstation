@@ -1,0 +1,13 @@
+# ---
+# In Fedora, by default there is no /usr/bin/python, which the poetry tool requires
+# This package provides it and it points to python3
+- name: Install python-unversioned-command package
+  package:
+    name: python-unversioned-command
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Enable poetry bash completions
+  shell:
+    cmd: poetry completions bash | sudo tee /etc/bash_completion.d/poetry.bash-completion > /dev/null
+    creates: /etc/bash_completion.d/poetry.bash-completion

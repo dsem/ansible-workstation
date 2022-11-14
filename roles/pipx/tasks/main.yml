@@ -1,0 +1,6 @@
+---
+- name: Install pipx package
+  package:
+    name: pipx
+    state: present
+  become: "{{ become_for_package }}"

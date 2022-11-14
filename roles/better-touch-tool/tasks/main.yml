@@ -1,0 +1,6 @@
+- name: Download and extract BetterTouchTool
+  unarchive:
+    src: https://bettertouchtool.net/releases/BetterTouchTool.zip
+    dest: ~/Applications
+    remote_src: yes
+  when: os == 'macos'

@@ -1,0 +1,19 @@
+---
+- name: Copy /etc/yum.repos.d/google-cloud-sdk.repos
+  copy:
+    src: etc/yum.repos.d/google-cloud-sdk.repo
+    dest: /etc/yum.repos.d/google-cloud-sdk.repo
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  when: ansible_os_family == "RedHat"
+
+- name: Install libxcrypt-compat and google-cloud-cli
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - libxcrypt-compat
+    - google-cloud-cli
+  become: "{{ become_for_package }}"

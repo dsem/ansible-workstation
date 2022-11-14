@@ -1,0 +1,6 @@
+---
+- name: Install bumpversion
+  package:
+    name: bumpversion
+    state: present
+  become: "{{ become_for_package }}"

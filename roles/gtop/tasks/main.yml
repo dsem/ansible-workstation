@@ -1,0 +1,7 @@
+---
+- name: Install gtop package
+  npm:
+    name: gtop
+    state: present
+    global: yes
+  become: "{{ become_for_package }}"

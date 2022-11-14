@@ -1,0 +1,12 @@
+---
+- block:
+    - name: Ensure ~/Library/KeyBindings
+      file:
+        path: $HOME/Library/KeyBindings
+        state: directory
+
+    - name: Copy ~/Library/KeyBindings/DefaultKeyBinding.dict
+      copy:
+        src: Library/KeyBindings/DefaultKeyBinding.dict
+        dest: $HOME/Library/KeyBindings/DefaultKeyBinding.dict
+  when: os == 'macos'

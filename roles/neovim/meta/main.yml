@@ -1,0 +1,10 @@
+---
+dependencies:
+  - ansible-lint
+  - golang
+  - nodejs
+  - poetry  # required to get venvFolders path
+  - powerline-fonts
+  - pyenv  # required to install python under dedicated pyenv
+  - remark  # required for markdown language server
+  - yarn  # required by markdown-preview plugin

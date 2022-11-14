@@ -1,0 +1,6 @@
+---
+- name: Download cloud_sql_proxy
+  get_url:
+    url: https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64
+    dest: ~/.local/bin/cloud_sql_proxy
+    mode: 0755

@@ -1,0 +1,7 @@
+---
+- name: Install make package
+  package:
+    name: make
+    state: present
+  become: "{{ become_for_package }}"
+  when: os == "linux"

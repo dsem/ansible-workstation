@@ -1,0 +1,34 @@
+---
+- name: Ensure ~/.config/gphotos-uploader-cli
+  file:
+    name: ~/.config/gphotos-uploader-cli
+    state: directory
+
+- name: Ensure ~/.local/state/gphotos-uploader-cli
+  file:
+    name: ~/.local/state/gphotos-uploader-cli
+    state: directory
+
+- name: Copy gphotos-uploader-cli config
+  template:
+    src: .config/gphotos-uploader-cli/config.hjson
+    dest: ~/.config/gphotos-uploader-cli/config.hjson
+  vars:
+    gphotos_uploader_cli_client_secret: "{{ lookup('passwordstore', 'Dylan/gphotos-uploader-cli-semler') }}"
+
+- name: Set fact for os
+  set_fact:
+    gphotos_os_family: "{{ (ansible_os_family == 'Darwin') | ternary('darwin', 'linux') }}"
+
+- name: Unarchive the gphotos-uploader-cli
+  unarchive:
+    src: https://github.com/gphotosuploader/gphotos-uploader-cli/releases/download/v{{ gphotos_uploader_cli_version }}/gphotos-uploader-cli_{{ gphotos_uploader_cli_version }}_{{ gphotos_os_family }}_amd64.tar.gz
+    dest: ~/.local/bin/.
+    remote_src: yes
+    include: gphotos-uploader-cli
+
+- name: Copy ~/.bashrc.d/gphotos-uploader-cli.sh
+  copy:
+    src: .bashrc.d/gphotos-uploader-cli.sh
+    dest: ~/.bashrc.d/gphotos-uploader-cli.sh
+    mode: 00775

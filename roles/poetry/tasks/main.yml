@@ -1,0 +1,19 @@
+---
+- name: Install poetry
+  shell:
+    cmd: curl -sSL https://install.python-poetry.org | python3 - -y
+    warn: false
+    creates: ~/.local/bin/poetry
+
+- name: Include distribution-specific tasks
+  include_tasks: "{{ os }}.yml"
+
+- name: Register poetry virtualenv path
+  shell:
+    cmd: poetry config virtualenvs.path | sed 's@/[^/]*/[^/]*/@@'
+  register: poetry_virtualenv_path
+  changed_when: false
+
+- name: Set the poetry_virtualenv_path as a fact
+  set_fact:
+    poetry_virtualenv_path : "{{ poetry_virtualenv_path.stdout }}"

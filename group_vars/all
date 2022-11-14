@@ -1,0 +1,42 @@
+---
+# Are we in Linux or MacOS?
+os: "{{ (ansible_os_family == 'Darwin') | ternary('macos', 'linux') }}"
+
+# When using the `package` module, we need to be sudo on linuxes but the regeular user on macos
+# This evaluates to a boolean that can be used like:
+#    become: "{{ become_for_package }}"
+# when using the package module
+become_for_package: "{{ os == 'linux' }}"
+
+# Evaluates to `~/.bashrc` for linuxes, to `~/bash_profile` otherwise.
+bash_config: "{{ (os == 'linux') | ternary('~/.bashrc', '~/.bash_profile') }}"
+
+
+# Software Versions
+
+# https://github.com/displaylink-rpm/displaylink-rpm/releases
+displaylink_version: 5.6.1
+evdi_version: 1.12.0
+displaylink_package_version: 1
+
+# Used by DisplayLink role to get path of download
+fedora_version: 35
+
+# https://www.gimp.org/downloads/
+gimp_major_version: 2.10
+gimp_version: 2.10.14
+
+# https://github.com/gphotosuploader/gphotos-uploader-cli/releases
+gphotos_uploader_cli_version: 3.4.0
+
+# https://github.com/github/licensed/releases
+karabiner_version: 12.9.0
+
+# https://github.com/github/licensed/releases
+licensed_version: 2.12.2
+
+# https://github.com/GoogleCloudPlatform/terraformer/releases
+terraformer_version: 0.8.21
+
+# https://github.com/sachaos/viddy/releases
+viddy_version: 0.3.6

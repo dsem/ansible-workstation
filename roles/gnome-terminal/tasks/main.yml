@@ -1,0 +1,26 @@
+---
+#
+# For other configuration options, see the gnome-terminal source:
+# https://gitlab.gnome.org/GNOME/gnome-terminal/-/blob/master/src/org.gnome.Terminal.gschema.xml
+#
+- block:
+    - name: Set the gnome-terminal font to {{ gnome_terminal_font }}
+      dconf:
+        key: /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/font
+        value: "'{{ gnome_terminal_font }}'"
+
+    - name: Set the name of the gnome-terminal profile
+      dconf:
+        key: /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/visible-name
+        value: "'{{ gnome_terminal_profile_name }}'"
+
+    - name: Git clone the nord theme for gnome-terminal
+      git:
+        repo: https://github.com/arcticicestudio/nord-gnome-terminal.git
+        dest: ~/.local/src/nord-gnome-terminal
+        depth: 1
+
+    - name: Install the nord theme for gnome-terminal
+      shell:
+        cmd: ~/.local/src/nord-gnome-terminal/src/nord.sh -p {{ gnome_terminal_profile_name }}
+  when: os == 'linux'

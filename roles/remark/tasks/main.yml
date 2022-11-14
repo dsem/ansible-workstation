@@ -1,0 +1,6 @@
+---
+- name: Install remark package
+  npm:
+    name: remark
+    path: ~/.local/node_modules
+    state: present

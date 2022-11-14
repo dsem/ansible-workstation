@@ -1,0 +1,5 @@
+---
+- name: Install useful keybindings for macos
+  shell:
+    cmd: $(brew --prefix)/opt/fzf/install --key-bindings --completion --update-rc --no-zsh --no-fish --xdg
+    creates: ~/.config/fzf/fzf.bash

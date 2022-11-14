@@ -1,0 +1,6 @@
+---
+- name: Install black package
+  package:
+    name: black
+    state: present
+  become: "{{ become_for_package }}"

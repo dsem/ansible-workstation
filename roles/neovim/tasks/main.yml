@@ -1,0 +1,65 @@
+---
+- name: Install neovim
+  package:
+    name: neovim
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Install python3-neovim package
+  package:
+    name: python3-neovim
+    state: present
+  when: os == 'linux'
+  become: "{{ become_for_package }}"
+
+- name: Ensure ~/.local/share/nvim/site/autoload
+  file:
+    path: ~/.local/share/nvim/site/autoload
+    state: directory
+
+- name: Install Vim Plug
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: ~/.local/share/nvim/site/autoload/
+
+- name: Ensure ~/.config/nvim
+  file:
+    path: ~/.config/nvim
+    state: directory
+
+- name: Copy .config/nvim/init.vim
+  copy:
+    src: .config/nvim/init.vim
+    dest: ~/.config/nvim/init.vim
+
+- name: Copy .config/nvim directories
+  copy:
+    src: .config/nvim/{{ item }}
+    dest: ~/.config/nvim/
+  with_items:
+    - lua
+    - vim
+
+- name: Install neovim plugins
+  shell:
+    cmd: nvim -i NONE -c "PlugInstall" -c "qa"
+
+- name: Copy .local/bin/vi
+  copy:
+    src: .local/bin/vi
+    dest: $HOME/.local/bin/vi
+    mode: 0775
+
+- name: Copy .bashrc.d/50-neovim.sh
+  copy:
+    src: .bashrc.d/50-neovim.sh
+    dest: ~/.bashrc.d/50-neovim.sh
+
+# TODO: pip doesn't seem to create the virtualenv even though
+#       the docs say it should
+# - name: pip install neovim in its pyenv
+#   pip:
+#     name: neovim
+#     virtualenv: ~/.pyenv/versions/neovim
+#     # virtualenv_command: pyenv virtualenv 3.9.9 neovim
+#     virtualenv_command: pyenv

@@ -1,0 +1,14 @@
+---
+- name: Set git_config pull behavior
+  git_config:
+    name: pull.rebase
+    scope: global
+    state: present
+    value: "true"
+
+- name: Set git_config default branch
+  git_config:
+    name: init.defaultBranch
+    scope: global
+    state: present
+    value: main

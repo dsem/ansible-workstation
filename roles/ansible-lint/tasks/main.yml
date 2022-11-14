@@ -1,0 +1,6 @@
+---
+- name: Install ansible-lint package
+  package:
+    name: ansible-lint
+    state: present
+  become: "{{ become_for_package }}"

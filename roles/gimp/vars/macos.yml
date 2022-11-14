@@ -1,0 +1,3 @@
+---
+dmg_filename: gimp-{{ gimp_version }}-x86_64-1.dmg
+download_url: https://download.gimp.org/mirror/pub/gimp/v{{ gimp_major_version }}/osx/{{ dmg_filename }}

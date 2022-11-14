@@ -1,0 +1,6 @@
+---
+- name: Install tox package
+  package:
+    name: tox
+    state: present
+  become: "{{ become_for_package }}"

@@ -1,0 +1,6 @@
+---
+- name: Install xquartz homebrew cask
+  homebrew_cask:
+    name: xquartz
+    state: present
+  when: os == 'macos'

@@ -1,0 +1,6 @@
+---
+- name: Install jq
+  package:
+    name: jq
+    state: present
+  become: "{{ become_for_package }}"

@@ -1,0 +1,19 @@
+{
+  APIAppCredentials:
+  {
+    ClientID: 995755749903-h52pfsqjn8hvjjioks5agmhhbh74a5p7.apps.googleusercontent.com
+    ClientSecret: {{ gphotos_uploader_cli_client_secret }}
+  }
+  Account: dylan.semler@gmail.com
+  SecretsBackendType: auto
+  Jobs:
+  [
+    {
+      SourceFolder: ~/.local/state/gphotos-uploader-cli
+      CreateAlbums: Off
+      DeleteAfterUpload: true
+      IncludePatterns: [ "_IMAGE_EXTENSIONS_", "_ALL_VIDEO_FILES_" ]
+      ExcludePatterns: []
+    }
+  ]
+}

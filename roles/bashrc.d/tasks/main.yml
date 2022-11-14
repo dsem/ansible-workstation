@@ -1,0 +1,17 @@
+---
+- name: Ensure ~/.bashrc.d
+  file:
+    path: ~/.bashrc.d
+    state: directory
+
+- name: Source ~/.bashrc.d files in .bashrc
+  blockinfile:
+    path: "{{ bash_config }}"
+    insertafter: EOF
+    marker: "# Ansible role: bashrc.d - {mark}"
+    marker_begin: Begin
+    marker_end: End
+    block: |
+      for file in ~/.bashrc.d/*.sh; do
+        source "$file"
+      done

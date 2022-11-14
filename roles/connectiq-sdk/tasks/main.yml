@@ -1,0 +1,30 @@
+---
+- name: Ensure ~/.local/src/connectiq-sdk-manager
+  file:
+    path: ~/.local/src/connectiq-sdk-manager
+    state: directory
+
+- name: Download the connectiq-sdk-manager
+  unarchive:
+    src: https://developer.garmin.com/downloads/connect-iq/sdk-manager/connectiq-sdk-manager-linux.zip
+    dest: ~/.local/src/connectiq-sdk-manager
+    remote_src: true
+
+- name: Link /usr/lib64/libjpeg.so.8 to /usr/lib64/libjpeg.so
+  file:
+    src: /usr/lib64/libjpeg.so
+    path: /usr/lib64/libjpeg.so.8
+    state: link
+  become: yes
+
+# Required for vscode extension
+- name: Install java-11-openjdk
+  package:
+    name: java-11-openjdk
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Write Garmin Developer Key
+  shell:
+    cmd: pass Dylan/garmin-developer-key > $HOME/.config/garmin-developer-key
+    creates: $HOME/.config/garmin-developer-key

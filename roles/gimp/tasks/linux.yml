@@ -1,0 +1,6 @@
+---
+- name: Install gimp package
+  package:
+    name: gimp
+    state: present
+  become: "{{ become_for_package }}"

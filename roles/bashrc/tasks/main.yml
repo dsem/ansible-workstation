@@ -1,0 +1,6 @@
+---
+- name: .bashrc.d/50-bashrc.sh
+  copy:
+    src: .bashrc.d/50-bashrc.sh
+    dest: ~/.bashrc.d/50-bashrc.sh
+  when: os == 'macos'

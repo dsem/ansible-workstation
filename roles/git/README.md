@@ -1,0 +1,3 @@
+# Git
+
+Configures git

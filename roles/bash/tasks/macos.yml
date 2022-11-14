@@ -1,0 +1,17 @@
+---
+- name: Install the latest version of bash
+  package:
+    name: bash
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Enable brew-install bash as a shell
+  lineinfile:
+    path: /etc/shells
+    insertafter: EOF
+    line: /usr/local/bin/bash
+  become: true
+
+- name: Execute chsh -s /usr/local/bin/bash
+  shell:
+    cmd: chsh -s /usr/local/bin/bash

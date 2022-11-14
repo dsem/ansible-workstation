@@ -1,0 +1,10 @@
+---
+- name: Include {{ os }} vars
+  include_vars:
+    file: "{{ os }}.yml"
+
+- name: Install fd package
+  package:
+    name: "{{ fd }}"
+    state: present
+  become: "{{ become_for_package }}"

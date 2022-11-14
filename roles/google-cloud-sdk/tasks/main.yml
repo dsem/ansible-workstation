@@ -1,0 +1,8 @@
+---
+- name: Included distribution-specific tasks
+  include_tasks: "{{ os }}.yml"
+
+- name: Copy ~/.bigqueryrc
+  copy:
+    src: .bigqueryrc
+    dest: ~/.bigqueryrc

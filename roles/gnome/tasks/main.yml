@@ -1,0 +1,56 @@
+---
+- block:
+    - name: Install tools for Linux desktop
+      package:
+        name: "{{ item }}"
+        state: present
+      become: "{{ become_for_package }}"
+      when: os == "linux"
+      loop:
+        - dconf-editor
+        - gnome-tweak-tool
+        - python3-psutil  # Needed for the dconf module
+
+    - name: Set gnome settings with dconf
+      dconf:
+        key: "{{ item.key }}"
+        value: "{{ item.value }}"
+      loop:
+        - key: /org/gnome/desktop/input-sources/xkb-options
+          value: "['caps:super']"
+        - key: /org/gnome/desktop/interface/clock-show-weekday
+          value: "true"
+        - key: /org/gnome/desktop/peripherals/keyboard/numlock-state
+          value: "true"
+        - key: /org/gnome/desktop/peripherals/touchpad/natural-scroll
+          value: "false"
+        - key: /org/gnome/desktop/peripherals/touchpad/tap-to-click
+          value: "true"
+        - key: /org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled
+          value: "true"
+        - key: /org/gnome/desktop/wm/keybindings/begin-resize
+          value: "['<Primary><Alt>r']"
+        - key: /org/gnome/desktop/wm/preferences/auto-raise
+          value: "true"
+        - key: /org/gnome/desktop/wm/preferences/focus-mode
+          value: "'sloppy'"
+        - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
+          value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+        - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+          value: "'<Primary><Alt>t'"
+        - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+          value: "'gnome-terminal'"
+        - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+          value: "'Launch a terminal'"
+        - key: /org/gnome/settings-daemon/plugins/media-keys/www
+          value: "['<Primary><Alt>w']"
+
+    - name: Enable GDM autologin
+      ini_file:
+        path: /etc/gdm/custom.conf
+        section: daemon
+        option: AutomaticLogin
+        value: dylan
+        state: present
+      become: yes
+  when: os == "linux"

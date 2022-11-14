@@ -1,0 +1,25 @@
+---
+- name: Include variables for {{ os }}
+  include_vars:
+    file: "{{ os }}.yml"
+
+- name: Check if gimp is installed
+  stat:
+    path: /Applications/GIMP-{{ gimp_major_version }}.app
+  register: gimp
+
+- block:
+    - name: Download {{ dmg_filename }}
+      get_url:
+        url: "{{ download_url }}"
+        dest: /tmp/{{ dmg_filename }}
+
+    - name: Open /tmp/{{ dmg_filename }}
+      shell:
+        cmd: open /tmp/{{ dmg_filename }}
+
+    - name: Remove /tmp/{{ dmg_filename }}
+      file:
+        path: /tmp/{{ dmg_filename }}
+        state: absent
+  when: gimp.stat.isdir is defined and gimp.stat.isdir

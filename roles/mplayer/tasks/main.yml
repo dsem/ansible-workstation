@@ -1,0 +1,6 @@
+---
+- name: Install mplayer package
+  package:
+    name: mplayer
+    state: present
+  become: "{{ become_for_package }}"

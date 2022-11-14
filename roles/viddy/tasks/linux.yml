@@ -1,0 +1,6 @@
+---
+- name: Install viddy package
+  unarchive:
+    src: https://github.com/sachaos/viddy/releases/download/v{{ viddy_version }}/viddy_{{ viddy_version }}_Linux_x86_64.tar.gz
+    dest: $HOME/.local/bin/.
+    remote_src: yes

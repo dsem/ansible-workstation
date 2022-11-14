@@ -1,0 +1,6 @@
+---
+- name: Install terraform package
+  package:
+    name: terraform
+    state: present
+  become: "{{ become_for_package }}"

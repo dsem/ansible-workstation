@@ -1,0 +1,32 @@
+---
+- name: Enable the yarn repository
+  get_url:
+    url: https://dl.yarnpkg.com/rpm/yarn.repo
+    dest: /etc/yum.repos.d/yarn.repo
+  become: true
+  when: ansible_os_family == "RedHat"
+
+- name: Install yarn package
+  package:
+    name: yarn
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Create directory ~/.local/yarn
+  file:
+    path: ~/.local/yarn
+    state: directory
+
+- name: Yarn config set prefix ~/.local/yarn
+  shell:
+    cmd: yarn config set prefix ~/.local/yarn
+
+- name: Register yarn bin directory
+  command: yarn global bin
+  register: yarn_bin
+  changed_when: false
+
+- name: Compose .bashrc.d/50-yarn.sh
+  template:
+    src: .bashrc.d/50-yarn.sh.j2
+    dest: ~/.bashrc.d/50-yarn.sh

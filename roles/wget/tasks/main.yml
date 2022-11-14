@@ -1,0 +1,6 @@
+---
+- name: Install wget package
+  package:
+    name: wget
+    state: present
+  become: "{{ become_for_package }}"

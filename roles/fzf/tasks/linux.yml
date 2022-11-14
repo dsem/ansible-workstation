@@ -1,0 +1,5 @@
+---
+- name: Copy .bashrc.d/50-fzf.sh
+  copy:
+    src: .bashrc.d/50-fzf.sh
+    dest: ~/.bashrc.d/50-fzf.sh

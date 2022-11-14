@@ -1,0 +1,6 @@
+---
+- name: Install viddy package
+  package:
+    name: viddy
+    state: presentn
+  become: "{{ become_for_package }}"

@@ -1,0 +1,7 @@
+---
+- name: Install dnf-plugins-core
+  package:
+    name: dnf-plugins-core
+    state: present
+  become: "{{ become_for_package }}"
+  when: ansible_os_family == "RedHat"

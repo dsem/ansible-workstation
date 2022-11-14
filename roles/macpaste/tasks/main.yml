@@ -1,0 +1,13 @@
+---
+- block:
+    - name: Git clone macpaste
+      git:
+        repo: git@gitlab.com:dsem/macpaste.git
+        dest: ~/.local/src/macpaste
+    
+    - name: Run setup.sh
+      shell:
+        chdir: ~/.local/src/macpaste
+        cmd: ./setup.sh -n
+        creates: ~/.local/src/macpaste/macpaste
+  when: os == 'macos'

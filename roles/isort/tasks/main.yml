@@ -1,0 +1,5 @@
+---
+- name: install isort with pipx
+  shell:
+    cmd: pipx install isort
+    creates: ~/.local/pipx/venv/isort

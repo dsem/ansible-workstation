@@ -1,0 +1,60 @@
+---
+# Various sites suggest disabling the power button functionality via
+# logind.conf. This appeared not to work on the Pixelbook with Fedora 35. It is
+# left here in case it is needed in the future.
+
+# - name: Ensure /etc/systemd/logind.conf.d
+#   file:
+#     path: /etc/systemd/logind.conf.d
+#     state: directory
+#     owner: root
+#     group: root
+#     mode: 0775
+#   become: yes
+
+# - name: copy /etc/systemd/logind.conf.d/pixelbook.conf
+#   copy:
+#     src: etc/systemd/logind.conf.d/pixelbook.conf
+#     dest: /etc/systemd/logind.conf.d/handlepowerkey.conf
+#     owner: root
+#     group: root
+#     mode: 0664
+#   become: yes
+
+- name: dconf org.gnome.settings-daemon.plugins.power.power-button-action nothing
+  dconf:
+    key: /org/gnome/settings-daemon/plugins/power/power-button-action
+    value: "'nothing'"
+
+- name: dconf org.gnome.settings-daemon.plugins.power.ambient-enabled false
+  dconf:
+    key: /org/gnome/settings-daemon/plugins/power/ambient-enabled
+    value: "false"
+
+- name: Comment out /etc/acpi/events/powerconf power-button-action
+  replace:
+    path: /etc/acpi/events/powerconf
+    regexp: '^(action=.*)'
+    replace: '# \1'
+  become: yes
+
+- name: Install mr-chromebox-utility command
+  copy:
+    dest: $HOME/.local/bin/mr-chromebox-utility
+    content: |
+      cd; curl -LOs mrchromebox.tech/firmware-util.sh && sudo bash firmware-util.sh
+      rm -f ./firmware-util.sh
+    mode: 0775
+
+- name: Install pixelbook-touchpad-service
+  package:
+    name: pixelbook-touchpad-service
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Enable the pixelbook-touchpad service
+  systemd:
+    service: pixelbook-touchpad
+    enabled: true
+    state: started
+  become: true

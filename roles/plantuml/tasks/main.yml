@@ -1,0 +1,7 @@
+---
+- name: Install plantuml package
+  package:
+    name: plantuml
+    state: present
+  become: "{{ become_for_package }}"
+

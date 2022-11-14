@@ -1,0 +1,16 @@
+---
+- name: Include distribution-specific variables
+  include_vars:
+    file: "{{ os }}.yml"
+
+- name: Install bash-completion package
+  package:
+    name: "{{ bash_completion_package_name }}"
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Copy .bashrc.d/50-bash-completion.sh
+  copy:
+    src: .bashrc.d/50-bash-completion.sh
+    dest: ~/.bashrc.d/50-bash-completion.sh
+  when: os == 'macos'

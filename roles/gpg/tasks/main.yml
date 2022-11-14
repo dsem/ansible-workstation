@@ -1,0 +1,6 @@
+---
+- name: Install gpg package
+  package:
+    name: gpg
+    state: present
+  when: os == 'macos'

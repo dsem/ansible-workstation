@@ -1,0 +1,6 @@
+---
+- name: Enable poetry bash completions
+  shell:
+    # Need to specify absolute path to poetry because the updated $PATH isn't yet available in this context
+    cmd: ~/.poetry/bin/poetry completions bash > $(brew --prefix)/etc/bash_completion.d/poetry.bash-completion
+    creates: /usr/local/etc/bash_completion.d/poetry.bash-completion

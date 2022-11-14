@@ -1,0 +1,6 @@
+---
+- name: Install jless package
+  package:
+    name: jless
+    state: present
+  become: "{{ become_for_package }}"

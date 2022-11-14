@@ -1,0 +1,11 @@
+---
+- name: Ensure ~/.local/src/gitstatus
+  file:
+    path: ~/.local/src/gitstatus
+    state: directory
+
+- name: Git clone romkatv/gitstatus.git
+  git:
+    repo: https://github.com/romkatv/gitstatus.git
+    depth: 1
+    dest: ~/.local/src/gitstatus

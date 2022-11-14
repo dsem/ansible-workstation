@@ -1,0 +1,6 @@
+---
+- name: Installl pre-commit package
+  package:
+    name: pre-commit
+    state: present
+  become: "{{ become_for_package }}"

@@ -1,0 +1,15 @@
+---
+- name: Git clone bash-it
+  git:
+    repo: https://github.com/Bash-it/bash-it.git
+    dest: ~/.bash_it
+    depth: 1
+
+- name: Run ~/.bash_it/install.sh
+  shell:
+    cmd: ~/.bash_it/install.sh --no-modify-config
+
+- name: Copy .bashrc.d/10-bash-it.sh
+  copy:
+    src: .bashrc.d/10-bash-it.sh
+    dest: ~/.bashrc.d/10-bash-it.sh

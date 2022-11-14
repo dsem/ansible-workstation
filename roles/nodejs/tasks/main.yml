@@ -1,0 +1,11 @@
+---
+- name: Ensure ~/.local/node_modules
+  file:
+    path: ~/.local/node_modules
+    state: directory
+
+- name: Install nodejs
+  package:
+    name: nodejs
+    state: present
+  become: "{{ become_for_package }}"

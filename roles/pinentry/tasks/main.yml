@@ -1,0 +1,9 @@
+---
+- name: Install pinentry package
+  package:
+    name: pinentry
+    state: present
+  become: "{{ become_for_package }}"
+  # MacOS comes with a pinentry and we don't want to install another one from
+  # brew
+  when: os == 'linux'

@@ -1,0 +1,11 @@
+---
+- name: Install RPMFusion repository
+  dnf:
+    name: https://mirrors.rpmfusion.org/{{ item }}
+    state: present
+    disable_gpg_check: yes
+  loop:
+    - free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm
+    - nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm
+  when: ansible_distribution == "Fedora"
+  become: yes

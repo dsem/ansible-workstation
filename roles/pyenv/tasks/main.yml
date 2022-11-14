@@ -1,0 +1,16 @@
+---
+- name: Include distrobution-specific tasks
+  include_tasks: "{{ os }}.yml"
+
+- name: Copy .bashrc.d/50-pyenv.sh
+  copy:
+    src: .bashrc.d/50-pyenv.sh
+    dest: ~/.bashrc.d/50-pyenv.sh
+
+- name: Install common python versions
+  shell:
+    cmd: source {{ bash_config }}; pyenv install {{ item }}
+    creates: ~/.pyenv/versions/{{ item }}
+  loop:
+    - 3.8.12
+    - 3.9.9

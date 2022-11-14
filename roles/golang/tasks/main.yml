@@ -1,0 +1,6 @@
+---
+- name: Install golang package
+  package:
+    name: golang
+    state: present
+  become: "{{ become_for_package }}"

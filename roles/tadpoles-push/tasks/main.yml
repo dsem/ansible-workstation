@@ -1,0 +1,6 @@
+---
+- name: Copy .local/bin/tadpoles-push
+  copy:
+    src: .local/bin/tadpoles-push
+    dest: ~/.local/bin/tadpoles-push
+    mode: 00775

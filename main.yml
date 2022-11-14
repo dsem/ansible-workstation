@@ -1,0 +1,56 @@
+---
+- hosts: localhost
+  roles:
+    # Bash role should be run in pre-main.yml
+    # - bash
+    - bash-completion
+    - bash-it
+    - bat
+    - better-touch-tool
+    - black
+    - bumpversion
+    - connectiq-sdk
+    - coreutils
+    - displaylink
+    - docker-compose
+    - fd
+    - fzf
+    - gimp
+    - git
+    - gnome
+    - gnome-terminal
+    - google-cloud-sdk
+    - gphotos-uploader-cli
+    - gtop
+    - helm
+    - httpie
+    - inkscape
+    - isort
+    - jl
+    - jless
+    - jq
+    - karabiner-elements
+    - licensed
+    - macpaste
+    - make
+    - mplayer
+    - neovim
+    - nord-iterm2
+    - nvm
+    - pipx
+    - pixelbook
+    - plantuml
+    - poetry
+    - pre-commit
+    - procs
+    - pyenv
+    - ripgrep
+    - rpmfusion
+    - tadpoles-push
+    - terraform
+    - terraformer
+    - tox
+    - viddy
+    - wget
+    - zoom
+  connection: localhost

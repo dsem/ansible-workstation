@@ -1,0 +1,12 @@
+---
+- block:
+    - name: Create ~/.local/src/nord-iterm2
+      file:
+        path: ~/.local/src/nord-iterm2
+        state: directory
+    
+    - name: Download Nord.itermcolor
+      get_url:
+        url: https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors
+        dest: ~/.local/src/nord-iterm2/Nord.itermcolors
+  when: os == 'macos'

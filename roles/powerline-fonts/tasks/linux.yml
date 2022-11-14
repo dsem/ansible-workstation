@@ -1,0 +1,17 @@
+---
+- name: Install the gdouros-symbola-fonts package
+  package:
+    name: gdouros-symbola-fonts
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Ensure ~/.local/share/fonts
+  file:
+    path: ~/.local/share/fonts
+    state: directory
+
+- name: Download Source Code Pro Powerline Font
+  get_url:
+    url: https://raw.githubusercontent.com/powerline/fonts/master/SourceCodePro/Source%20Code%20Pro%20for%20Powerline.otf
+    dest: ~/.local/share/fonts/Source Code Pro for Powerline.otf
+  notify: Flush font cache

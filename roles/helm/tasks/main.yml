@@ -1,0 +1,6 @@
+---
+- name: Install helm package
+  package:
+    name: helm
+    state: present
+  become: "{{ become_for_package }}"

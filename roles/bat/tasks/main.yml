@@ -1,0 +1,11 @@
+---
+- name: Install bat package
+  package:
+    name: bat
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Copy .bashrc.d/50-bat.sh
+  copy:
+    src: .bashrc.d/50-bat.sh
+    dest: ~/.bashrc.d/50-bat.sh

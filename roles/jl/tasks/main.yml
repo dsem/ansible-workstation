@@ -1,0 +1,6 @@
+---
+- name: Install jl package
+  homebrew:
+    name: koenbollen/public/jl
+    state: present
+  when: os == "macos"

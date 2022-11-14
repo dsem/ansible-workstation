@@ -1,0 +1,6 @@
+---
+- name: Install procs package
+  package:
+    name: procs
+    state: present
+  become: "{{ become_for_package }}"

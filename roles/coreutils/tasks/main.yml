@@ -1,0 +1,7 @@
+---
+- name: Install coreutils package
+  package:
+    name: coreutils
+    state: present
+  become: "{{ become_for_package }}"
+  when: os == "macos"
