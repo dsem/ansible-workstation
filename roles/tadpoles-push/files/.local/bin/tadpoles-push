@@ -8,7 +8,7 @@ fi
 id=$(echo "$1" | sed s@^.*/@@)
 filename=$(echo "$2" | sed s@.mp4\$@@)
 
-wget https://www.tadpoles.com/m/v/$id?d=t -o /dev/null -O .local/state/gphotos-uploader-cli/$filename.mp4
+wget https://www.tadpoles.com/m/v/$id?d=t -o /dev/null -O ~/.local/state/gphotos-uploader-cli/$filename.mp4
 
 gphotos-uploader-cli auth
 gphotos-uploader-cli push
