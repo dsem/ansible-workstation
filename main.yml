@@ -3,6 +3,7 @@
   roles:
     # Bash role should be run in pre-main.yml
     # - bash
+    - aws-cli
     - bash-completion
     - bash-it
     - bat
