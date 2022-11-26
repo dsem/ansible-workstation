@@ -26,6 +26,9 @@ fedora_version: 35
 gimp_major_version: 2.10
 gimp_version: 2.10.14
 
+# https://cloud.google.com/sdk/docs/install-sdk
+google_cloud_sdk_version: 410.0.0
+
 # https://github.com/gphotosuploader/gphotos-uploader-cli/releases
 gphotos_uploader_cli_version: 3.4.0
 
