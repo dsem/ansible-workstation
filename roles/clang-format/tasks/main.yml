@@ -1,0 +1,6 @@
+---
+- name: Install clang-format package
+  package:
+    name: clang-format
+    state: present
+  become: "{{ become_for_package }}"
