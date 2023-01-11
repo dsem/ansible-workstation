@@ -1,2 +1,2 @@
 ---
-google_cloud_sdk_filename: google-cloud-sdk-284.0.0-darwin-x86_64.tar.gz
+google_cloud_sdk_filename: google-cloud-sdk-{{ google_cloud_sdk_version }}-darwin-x86_64.tar.gz

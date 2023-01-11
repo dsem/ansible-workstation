@@ -13,3 +13,4 @@
     src: https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/{{ google_cloud_sdk_filename }}
     dest: ~/.local/src
     remote_src: yes
+    creates: ~/.local/src/google-cloud-sdk
