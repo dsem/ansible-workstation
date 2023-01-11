@@ -1,6 +1,7 @@
 ---
 dependencies:
   - ansible-lint
+  - clang-format
   - golang
   - nodejs
   - poetry  # required to get venvFolders path
