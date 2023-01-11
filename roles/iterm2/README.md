@@ -1,5 +1,5 @@
 ## Configuration
 
-iTerm2 -> Preferences -> Keys -> Key Bindings -> Presets -> Import
+iTerm2 -> Preferences -> Profiles -> Other Actions... -> Presets -> Import JSON Profiles...
 
-Select [ctrl-c.iterkeymap](ctrl-c.itermkeymap]
+Select [iterm2-profile.json](iterm2-profile.json)
