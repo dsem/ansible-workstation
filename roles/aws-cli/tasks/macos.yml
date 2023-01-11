@@ -1,0 +1,25 @@
+---
+- name: Register AWS command
+  shell:
+    cmd: aws --version
+  check_mode: false
+  changed_when: false
+  failed_when: result.rc != 0 and result.rc != 127
+  register: result
+
+- block:
+    - name: Download aws-cli package
+      get_url:
+        url: https://awscli.amazonaws.com/AWSCLIV2.pkg
+        dest: /tmp/AWSCLIV2.pkg
+
+    - name: Install aws-cli package
+      shell:
+        cmd: installer -pkg /tmp/AWSCLIV2.pkg -target /
+      become: yes
+
+    - name: Remove /tmp/AWSCLIV2.pkg
+      file:
+        path: /tmp/AWSCLIV2.pkg
+        state: absent
+  when: result.rc == 127
