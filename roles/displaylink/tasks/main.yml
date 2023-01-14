@@ -1,8 +1,11 @@
 ---
 - name: Install DisplayLink package
-  package:
-    name: https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v{{ displaylink_version }}/fedora-{{ fedora_version }}-displaylink-{{ evdi_version }}-{{ displaylink_package_version }}.x86_64.rpm
+  ansible.builtin.package:
+    name: "\
+      https://github.com/displaylink-rpm/displaylink-rpm/releases/download\
+      /v{{ displaylink_version }}\
+      /fedora-{{ fedora_version }}-displaylink-{{ evdi_version }}-{{ displaylink_package_version }}.x86_64.rpm"
     state: present
-    disable_gpg_check: yes
+    disable_gpg_check: true
   become: "{{ become_for_package }}"
   when: ansible_distribution == "Fedora"
