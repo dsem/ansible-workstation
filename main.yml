@@ -47,6 +47,7 @@
     - pyenv
     - ripgrep
     - rpmfusion
+    - slack
     - tadpoles-push
     - terraform
     - terraformer

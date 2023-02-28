@@ -1,0 +1,16 @@
+---
+- name: Download and install Slack RPM
+  ansible.builtin.dnf:
+    name: "\
+      https://downloads.slack-edge.com/releases/linux/{{ slack_version }}/prod/x64/\
+      slack-{{ slack_version }}-{{ slack_rpm_version }}.{{ slack_distribution }}.x86_64.rpm"
+    state: present
+    disable_gpg_check: true
+  become: true
+
+- name: Copy /usr/share/applications/slack.desktop to ~/.config/autostart/.
+  ansible.builtin.copy:
+    src: /usr/share/applications/slack.desktop
+    dest: ~/.config/autostart/.
+    remote_src: true
+    mode: 0644

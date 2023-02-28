@@ -39,6 +39,11 @@ karabiner_version: 12.9.0
 # https://github.com/github/licensed/releases
 licensed_version: 2.12.2
 
+# https://slack.com/downloads/instructions/fedora  (click the "Try Again")
+slack_version: 4.29.149
+slack_rpm_version: 0.1
+slack_distribution: el8
+
 # https://github.com/GoogleCloudPlatform/terraformer/releases
 terraformer_version: 0.8.21
 
