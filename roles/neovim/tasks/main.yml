@@ -27,8 +27,8 @@
     path: ~/.config/nvim
     state: directory
 
-- name: Copy .config/nvim/init.vim
-  copy:
+- name: Compose .config/nvim/init.vim
+  template:
     src: .config/nvim/init.vim
     dest: ~/.config/nvim/init.vim
 
@@ -43,6 +43,16 @@
 - name: Install neovim plugins
   shell:
     cmd: nvim -i NONE -c "PlugInstall" -c "qa"
+
+- name: Ensure ~/.config/nvim/pack/github/start/copilot.vim
+  file:
+    path: ~/.config/nvim/pack/github/start/copilot.vim
+    state: directory
+
+- name: Install copilot plugin
+  git:
+    repo: https://github.com/github/copilot.vim.git
+    dest: ~/.config/nvim/pack/github/start/copilot.vim
 
 - name: Copy .local/bin/vi
   copy:
