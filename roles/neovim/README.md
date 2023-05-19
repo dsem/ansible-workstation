@@ -35,3 +35,10 @@ nvim
 ```
 :TSInstall bash cmake comment dockerfile graphql javascript json make lua python regex rst toml typescript vim yaml
 ```
+
+### Setup and enable Copilot
+
+```
+:Copilot Setup
+:Copilot enable
+```
