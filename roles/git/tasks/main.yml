@@ -12,3 +12,17 @@
     scope: global
     state: present
     value: main
+
+- name: Set git user name
+  git_config:
+    name: user.name
+    scope: global
+    value: "Dylan Semler"
+    state: present
+
+- name: Set git user name
+  git_config:
+    name: user.email
+    scope: global
+    value: dylan.semler@gmail.com
+    state: present

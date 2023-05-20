@@ -1,0 +1,5 @@
+- name:
+  homebrew_cask:
+    name: raycast
+    state: present
+  when: os == "macos"

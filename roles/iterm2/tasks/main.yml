@@ -1,0 +1,6 @@
+---
+- name: Install iTerm2 package
+  homebrew_cask:
+    name: iterm2
+    state: present
+  when: os == "macos"

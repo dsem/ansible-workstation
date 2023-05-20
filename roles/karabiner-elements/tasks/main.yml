@@ -1,21 +1,6 @@
 ---
-- block:
-    - name: Download {{ dmg_filename }}
-      get_url:
-        url: https://github.com/pqrs-org/Karabiner-Elements/releases/download/v{{ karabiner_version }}/{{ dmg_filename }}
-        dest: /tmp/{{ dmg_filename }}
-
-    - name: Open /tmp/{{ dmg_filename }}
-      command:
-        cmd: open /tmp/{{ dmg_filename }}
-
-    - name: Remove /tmp/{{ dmg_filename }}
-      file:
-        path: /tmp/{{ dmg_filename }}
-        state: absent
-
-    - name: Copy .config/karabiner/karabiner.json to ~/.config/karabiner/karabiner.json
-      copy:
-        src: .config/karabiner/karabiner.json
-        dest: ~/.config/karabiner/karabiner.json
+- name: Install karabiner-elements package
+  homebrew_cask:
+    name: karabiner-elements
+    state: present
   when: os == 'macos'

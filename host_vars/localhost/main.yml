@@ -11,6 +11,8 @@ become_for_package: "{{ os == 'linux' }}"
 # Evaluates to `~/.bashrc` for linuxes, to `~/bash_profile` otherwise.
 bash_config: "{{ (os == 'linux') | ternary('~/.bashrc', '~/.bash_profile') }}"
 
+# Base directory where the repo is cloned to
+ansible_workstation_path: ~/.local/src/ansible-workstation
 
 # Software Versions
 
@@ -28,24 +30,18 @@ gimp_major_version: 2.10
 gimp_version: 2.10.14
 
 # https://cloud.google.com/sdk/docs/install-sdk
-google_cloud_sdk_version: 410.0.0
+google_cloud_sdk_version: 430.0.0
 
 # https://github.com/gphotosuploader/gphotos-uploader-cli/releases
-gphotos_uploader_cli_version: 3.4.0
-
-# https://github.com/github/licensed/releases
-karabiner_version: 12.9.0
-
-# https://github.com/github/licensed/releases
-licensed_version: 2.12.2
+gphotos_uploader_cli_version: 3.5.0
 
 # https://slack.com/downloads/instructions/fedora  (click the "Try Again")
-slack_version: 4.29.149
+slack_version: 4.32.122
 slack_rpm_version: 0.1
 slack_distribution: el8
 
 # https://github.com/GoogleCloudPlatform/terraformer/releases
-terraformer_version: 0.8.21
+terraformer_version: 0.8.22
 
 # https://github.com/sachaos/viddy/releases
 viddy_version: 0.3.6

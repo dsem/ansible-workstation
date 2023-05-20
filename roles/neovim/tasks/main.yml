@@ -27,8 +27,8 @@
     path: ~/.config/nvim
     state: directory
 
-- name: Copy .config/nvim/init.vim
-  copy:
+- name: Compose .config/nvim/init.vim
+  template:
     src: .config/nvim/init.vim
     dest: ~/.config/nvim/init.vim
 

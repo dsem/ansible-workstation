@@ -12,6 +12,17 @@
     line: /usr/local/bin/bash
   become: true
 
+- name: Store the brew prefix
+  command: brew --prefix
+  register: brew_prefix_command
+
+- name: Append {{ brew_prefix_command.stdout }}/bin/bash to /etc/shells
+  lineinfile:
+    path: /etc/shells
+    line: "{{ brew_prefix_command.stdout }}/bin/bash"
+    insertafter: EOF
+  become: true
+
 - name: Execute chsh -s /usr/local/bin/bash
   shell:
-    cmd: chsh -s /usr/local/bin/bash
+    cmd: chsh -s "{{ brew_prefix_command.stdout }}/bin/bash"
