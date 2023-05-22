@@ -1,0 +1,15 @@
+---
+- block:
+    - name: Copy .local/src/remap-right-modifiers.sh
+      ansible.builtin.copy:
+        src: .local/src/remap-right-modifiers.sh
+        dest: ~/.local/src/remap-right-modifiers.sh
+
+    - name: Configure script to run at boot in crontab
+      ansible.builtin.cron:
+        name: remap right modifiers
+        job: /Users/user38950091/.local/src/remap-right-modifiers.sh
+        special_time: reboot
+        state: present
+      become: true
+  when: os == "macos"
