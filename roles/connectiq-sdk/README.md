@@ -1,5 +1,6 @@
 # Garmin ConnectIQ SDK
 
-Visual Studio Code is needed to initialize new projects:
+## Manual Followup
 
-https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions
+Install [Visual Studio Code](https://code.visualstudio.com/) in order to
+initialize new projects.

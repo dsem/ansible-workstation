@@ -8,4 +8,5 @@ dependencies:
   - powerline-fonts
   - pyenv  # required to install python under dedicated pyenv
   - remark  # required for markdown language server
+  - rust  # required by the toml language server (taplo)
   - yarn  # required by markdown-preview plugin

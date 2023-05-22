@@ -9,6 +9,12 @@
   shell:
     cmd: ~/.bash_it/install.sh --no-modify-config
 
+- name: Git clone thin theme
+  git:
+    repo: https://gitlab.com/dsem/thin.git
+    dest: ~/.bash_it/themes/thin
+    depth: 1
+
 - name: Copy .bashrc.d/10-bash-it.sh
   copy:
     src: .bashrc.d/10-bash-it.sh

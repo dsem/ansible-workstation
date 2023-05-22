@@ -2,7 +2,12 @@
 - name: Include tasks from {{ os }}.yml
   include_tasks: "{{ os }}.yml"
 
-- name: Copy .bashrc.d/50-history.sh
+- name: Ensure ~/.bashrc.d
+  file:
+    path: ~/.bashrc.d
+    state: directory
+
+- name: Copy ~/.bashrc.d/50-history.sh
   copy:
     src: .bashrc.d/50-history.sh
     dest: ~/.bashrc.d/50-history.sh

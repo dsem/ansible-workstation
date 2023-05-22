@@ -1,6 +1,5 @@
-- name: Download and extract BetterTouchTool
-  unarchive:
-    src: https://bettertouchtool.net/releases/BetterTouchTool.zip
-    dest: ~/Applications
-    remote_src: yes
+- name: Install bettertouchtool package
+  homebrew_cask:
+    name: bettertouchtool
+    state: present
   when: os == 'macos'

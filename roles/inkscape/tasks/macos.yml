@@ -1,0 +1,5 @@
+---
+- name: Install inkscape package
+  homebrew_cask:
+    name: inkscape
+    state: present

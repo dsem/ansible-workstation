@@ -5,6 +5,6 @@
 
 - name: Download terraformer
   get_url:
-    url: https://github.com/GoogleCloudPlatform/terraformer/releases/download/0.8.21/{{ release_name }}
+    url: https://github.com/GoogleCloudPlatform/terraformer/releases/download/{{ terraformer_version }}/{{ release_name }}
     dest: ~/.local/bin/terraformer
     mode: 0775

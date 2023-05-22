@@ -1,0 +1,6 @@
+---
+- name: Install inkscape package
+  package:
+    name: inkscape
+    state: present
+  become: "{{ become_for_package }}"

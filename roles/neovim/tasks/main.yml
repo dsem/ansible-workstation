@@ -65,6 +65,11 @@
     src: .bashrc.d/50-neovim.sh
     dest: ~/.bashrc.d/50-neovim.sh
 
+- name: Remove deprecated files
+  file:
+    path: ~/.config/nvim/lua/nvim-lspconfig.lua
+    state: absent
+
 # TODO: pip doesn't seem to create the virtualenv even though
 #       the docs say it should
 # - name: pip install neovim in its pyenv

@@ -3,6 +3,9 @@
   roles:
     # Bash role should be run in pre-main.yml
     # - bash
+    # Rosetta is probably a dependency of a lot of them, but it's not worth
+    # tracking down which ones and listing it within ansible
+    - rosetta
     - aws-cli
     - bash-completion
     - bash-it
@@ -20,6 +23,7 @@
     - git
     - gnome
     - gnome-terminal
+    - google-chrome
     - google-cloud-sdk
     - gphotos-uploader-cli
     - gtop
@@ -27,11 +31,13 @@
     - httpie
     - inkscape
     - isort
+    - iterm2
     - jl
     - jless
     - jq
     - karabiner-elements
     - licensed
+    - macos
     - macpaste
     - make
     - mplayer
@@ -45,6 +51,7 @@
     - pre-commit
     - procs
     - pyenv
+    - raycast
     - ripgrep
     - rpmfusion
     - slack

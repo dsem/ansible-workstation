@@ -1,15 +1,6 @@
 ---
-- name: Install cmake and pkg-config packages
+- name: Install licensed gem
   package:
-    name: '{{ item }}'
+    name: licensed
     state: present
-  loop:
-    - cmake
-    - pkg-config
   become: '{{ become_for_package }}'
-
-- name: Install licensed package
-  unarchive:
-    src: https://github.com/github/licensed/releases/download/{{ licensed_version }}/licensed-{{ licensed_version }}-darwin-x64.tar.gz
-    dest: ~/.local/bin
-    remote_src: yes

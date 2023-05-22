@@ -5,8 +5,9 @@ call plug#begin('~/.config/nvim/autoload')
 """"""""Plugins affecting all languages """"""""""
 
 " Common configurations for the language server
+Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -127,8 +128,37 @@ call plug#end()
 
 " initialize Lua Configs
 lua << EOF
+require("mason").setup()
+require("mason-lspconfig").setup {
+    ensure_installed = {
+        "ansiblels",
+        "bashls",
+        "dockerls",
+        "jsonls",
+        "lua_ls",
+        "pyright",
+        "taplo",
+        "terraformls",
+        "vimls",
+        "yamlls"
+    }
+}
+require("mason-lspconfig").setup_handlers {
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {}
+    end
+    -- end,
+    -- Next, you can provide a dedicated handler for specific servers.
+    -- For example, a handler override for the `rust_analyzer`:
+    -- ["rust_analyzer"] = function ()
+    --     require("rust-tools").setup {}
+    -- end
+}
+
 require('nvim-cmp')
-require('nvim-lspconfig')
 EOF
 
 
