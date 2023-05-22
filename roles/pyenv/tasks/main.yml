@@ -11,6 +11,4 @@
   shell:
     cmd: source {{ bash_config }}; pyenv install {{ item }}
     creates: ~/.pyenv/versions/{{ item }}
-  loop:
-    - 3.8.12
-    - 3.9.9
+  loop: "{{ python_versions }}"

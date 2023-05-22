@@ -35,6 +35,12 @@ google_cloud_sdk_version: 430.0.0
 # https://github.com/gphotosuploader/gphotos-uploader-cli/releases
 gphotos_uploader_cli_version: 3.5.0
 
+# https://www.python.org/downloads/
+python_versions:
+  - 3.11.3
+  - 3.10.11
+  - 3.9.16
+
 # https://slack.com/downloads/instructions/fedora  (click the "Try Again")
 slack_version: 4.32.122
 slack_rpm_version: 0.1
