@@ -9,6 +9,29 @@ Install [Visual Studio Code](https://code.visualstudio.com/) in order to
 initialize new projects.
 
 
+## MacOS
+
+### Rotate modifier keys
+
+Rotate the modifier keys for a more familiar keyboard:
+
+Settings -> Keyboard -> Keyboard Shortcuts -> Modifier Keys:
+
+For the internal keyboard/trackpad:
+
+* Control -> fn Function
+* Command -> Control
+* Function -> Command
+
+### Key repetition speed
+
+Speed up the rate at which keys repeat to maintain sanity:
+
+Settings -> Keyboard:
+
+Slide the key repetition speed and wait for repetition all the way to the right.
+
+
 ## iTerm2
 
 Import the curated profile for iTerm2. In the iTerm2 menu, select:
@@ -43,4 +66,11 @@ Install treesitter configurations with `:TSInstall`:
 
 ```
 :TSInstall bash cmake comment dockerfile graphql javascript json make lua python regex rst toml typescript vim yaml
+```
+
+### Setup and enable Copilot
+
+```
+:Copilot Setup
+:Copilot enable
 ```
