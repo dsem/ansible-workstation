@@ -1,0 +1,6 @@
+---
+- name: Install rust package
+  package:
+    name: rust
+    state: present
+  become: "{{ become_for_package }}"
