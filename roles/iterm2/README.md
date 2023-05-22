@@ -1,9 +1,13 @@
-## Configuration
+# iTerm2
+
+## Manual Followup
+
+Import the curated profile for iTerm2. In the iTerm2 menu, select:
 
 iTerm2 -> Settings -> Profiles -> Other Actions... -> Import JSON Profiles...
 
-Select [iterm2-profile.json](iterm2-profile.json)
+Select the [iterm2-profile.json](iterm2-profile.json) in this directory.
 
-Click on "Curated Profile" -> Other Actions... -> Set as Default
+Then set it as the default profile by clicking on "Curated Profile" -> Other Actions... -> Set as Default.
 
-Then remove the "Default" profile
+Finally, remove the "Default" profile by selecting the "Default" profile and clicking on the minus sign.
