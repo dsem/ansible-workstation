@@ -9,6 +9,12 @@ Install [Visual Studio Code](https://code.visualstudio.com/) in order to
 initialize new projects.
 
 
+## Garmin ConnectIQ SDK
+
+Install [Visual Studio Code](https://code.visualstudio.com/) in order to
+initialize new projects.
+
+
 ## iTerm2
 
 Import the curated profile for iTerm2. In the iTerm2 menu, select:
