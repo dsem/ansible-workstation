@@ -9,7 +9,7 @@
     - name: Configure script to run at boot in crontab
       ansible.builtin.cron:
         name: remap right modifiers
-        job: /Users/user38950091/.local/src/remap-right-modifiers.sh
+        job: "{{ ansible_env.HOME }}/.local/src/remap-right-modifiers.sh"
         special_time: reboot
         state: present
       become: true
