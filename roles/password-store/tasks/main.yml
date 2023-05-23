@@ -1,0 +1,6 @@
+---
+- name: Install password-store
+  package:
+    name: pass
+    state: present
+  become: "{{ become_for_package }}"
