@@ -4,6 +4,7 @@
       ansible.builtin.copy:
         src: .local/src/remap-right-modifiers.sh
         dest: ~/.local/src/remap-right-modifiers.sh
+        mode: "755"
 
     - name: Configure script to run at boot in crontab
       ansible.builtin.cron:
