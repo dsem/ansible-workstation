@@ -50,6 +50,15 @@ Then set it as the default profile by clicking on "Curated Profile" -> Other Act
 Finally, remove the "Default" profile by selecting the "Default" profile and clicking on the minus sign.
 
 
+## Macpaste
+
+Go to System Preferences -> Security & Privacy -> Input Monitoring
+
+Select Accessibility and add ~/.local/bin/macpaste
+
+Logout and log back in again.
+
+
 ## Neovim
 
 Create a neovim virtual environment with the neovim package in it:
