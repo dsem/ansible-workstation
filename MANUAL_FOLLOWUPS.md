@@ -37,6 +37,21 @@ Find the quickres email in your email history, click on the "View Content"
 link, and download it again
 
 
+### Disable the Spotlight keyboard shortcut
+
+Don't show spotlight in the menu bar:
+
+Settings -> Control Center -> Menu Bar Only -> Spotlight; select "Don't show in Menu Bar"
+
+Prevent spotlit from indexing things, since we're not using it anyways:
+
+Settings -> Siri and Spotlight -> Spotlight; uncheck everything
+
+Disable the keyboard shortcut:
+
+Settings -> Keyboard -> Keyboard shortcuts -> Spotlight; uncheck the options
+
+
 ## iTerm2
 
 Import the curated profile for iTerm2. In the iTerm2 menu, select:
