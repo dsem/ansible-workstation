@@ -31,6 +31,11 @@ Settings -> Keyboard:
 
 Slide the key repetition speed and wait for repetition all the way to the right.
 
+### Enable higher resolutions with quickres
+
+Find the quickres email in your email history, click on the "View Content"
+link, and download it again
+
 
 ## iTerm2
 
