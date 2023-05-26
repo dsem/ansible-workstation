@@ -2,7 +2,7 @@
 - hosts: localhost
   roles:
     # Bash role should be run in pre-main.yml
-    # - bash
+    # bash
     # Rosetta is probably a dependency of a lot of them, but it's not worth
     # tracking down which ones and listing it within ansible
     - rosetta

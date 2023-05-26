@@ -11,3 +11,20 @@
   copy:
     src: .bashrc.d/50-history.sh
     dest: ~/.bashrc.d/50-history.sh
+
+- name: Ensure ~/.local/bin
+  file:
+    path: ~/.local/bin
+    state: directory
+    mode: "775"
+
+- name: Copy .bashrc.d/10-PATH.sh
+  copy:
+    src: .bashrc.d/10-PATH.sh
+    dest: ~/.bashrc.d/10-PATH.sh
+
+- name: Copy .bashrc.d/02-locale.sh
+  copy:
+    src: .bashrc.d/02-locale.sh
+    dest: ~/.bashrc.d/02-locale.sh
+  when: os == "macos"
