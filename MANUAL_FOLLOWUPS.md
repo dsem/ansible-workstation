@@ -74,6 +74,23 @@ Select Accessibility and add ~/.local/bin/macpaste
 Logout and log back in again.
 
 
+## BetterTouchTool
+
+1. Open BetterTouchTool and adjust the permissions in system settings
+
+2. Import Presets
+
+   Go to Presets -> Import Presets
+
+   Select the [Curated Profile.bttpreset](Curated Profile.bttpreset) file
+
+3. Register the BTT app
+
+   Click the BTT icon -> Register
+
+   Download the BetterTouchTool license by searching BetterTouchTool in gmail
+
+
 ## Neovim
 
 Create a neovim virtual environment with the neovim package in it:

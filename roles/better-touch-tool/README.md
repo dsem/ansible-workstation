@@ -6,7 +6,7 @@ BetterTouchTool provides
 * Familiar keyboard shortcuts for opening applications, switching desktops,
   moving windows, etc.
 
-## Configuration
+## Manual Followup
 
 1. Open BetterTouchTool and adjust the permissions in system settings
 
@@ -21,9 +21,3 @@ BetterTouchTool provides
    Click the BTT icon -> Register
 
    Download the BetterTouchTool license by searching BetterTouchTool in gmail
-
-4. Disable the keyboard shortcuts for `ctrl left-arrow` and `ctrl right-arrow`.
-   By default these change workspaces, but we want them to move the curser in
-   word increments. Open `System Preferences` -> `Keyboard`, switch to the
-   `Shortcuts` tab.  Select `Mission Control` and uncheck "Move left a space"
-   and "Move right a space".
