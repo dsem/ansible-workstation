@@ -9,6 +9,12 @@ Install [Visual Studio Code](https://code.visualstudio.com/) in order to
 initialize new projects.
 
 
+## Docker
+
+Open the docker application via Launchpad to bootstrap accept the terms and
+bootstrap the daemon
+
+
 ## MacOS
 
 ### Rotate modifier keys

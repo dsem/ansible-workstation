@@ -1,0 +1,6 @@
+---
+- name: Install docker cask
+  community.general.homebrew_cask:
+    name: docker
+    state: present
+  when: os == "macos"

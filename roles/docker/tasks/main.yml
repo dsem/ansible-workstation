@@ -1,6 +1,3 @@
 ---
-- name: Install docker cask
-  homebrew_cask:
-    name: docker
-    state: present
-  when: os == "macos"
+- name: Include distribution-specific tasks
+  include_tasks: "{{ os }}.yml"
