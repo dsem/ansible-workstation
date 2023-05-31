@@ -1,0 +1,12 @@
+---
+- name: Install zoom rpm key
+  rpm_key:
+    key: https://us02web.zoom.us/linux/download/pubkey
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Install zoom package
+  package:
+    name: https://us02web.zoom.us/client/latest/zoom_x86_64.rpm
+    state: present
+  become: "{{ become_for_package }}"
