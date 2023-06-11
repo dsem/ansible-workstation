@@ -1,2 +1,8 @@
 - name: Include distribution-specific tasks
   include_tasks: "{{ os }}.yml"
+
+- name: Install docker-credential-helper-ecr
+  package:
+    name: docker-credential-helper-ecr
+    state: present
+  become: "{{ become_for_package }}"
