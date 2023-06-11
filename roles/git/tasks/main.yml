@@ -1,4 +1,16 @@
 ---
+- name: Install git package
+  package:
+    name: git
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Install git-lfs package
+  package:
+    name: git-lfs
+    state: present
+  become: "{{ become_for_package }}"
+
 - name: Set git_config pull behavior
   git_config:
     name: pull.rebase
