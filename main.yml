@@ -15,6 +15,7 @@
     - bumpversion
     - connectiq-sdk
     - coreutils
+    - delta
     - displaylink
     - docker
     - docker-compose

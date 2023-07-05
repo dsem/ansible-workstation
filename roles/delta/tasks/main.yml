@@ -1,0 +1,25 @@
+---
+- name: Install delta package
+  ansible.builtin.package:
+    name: git-delta
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Configure git for delta
+  community.general.git_config:
+    scope: global
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+  with_items:
+    - name: core.pager
+      value: delta
+    - name: interactive.diffFilter
+      value: delta --color-only
+    - name: delta.navigate
+      value: true
+    - name: delta.light
+      value: false
+    - name: merge.conflictstyle
+      value: diff3
+    - name: diff.colorMoved
+      value: default
