@@ -1,0 +1,12 @@
+---
+- name: Install gitui package
+  ansible.builtin.package:
+    name: gitui
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Copy ~/.config/gitui/key_bindings.ron
+  ansible.builtin.copy:
+    src: .config/gitui/key_bindings.ron
+    dest: ~/.config/gitui/key_bindings.ron
+    mode: "0664"
