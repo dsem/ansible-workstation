@@ -1,0 +1,16 @@
+---
+- name: Tap cask-fonts cask
+  community.general.homebrew_tap:
+    name: Homebrew/cask-fonts
+    state: present
+
+- name: Install source-code-pro font
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - font-sauce-code-pro-nerd-font
+    - font-meslo-lg-nerd-font
+  # Seems to fail no matter what, might be related:
+  # https://github.com/ansible-collections/community.general/issues/1647
+  ignore_errors: true

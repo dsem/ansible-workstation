@@ -19,6 +19,7 @@
     - displaylink
     - docker
     - docker-compose
+    - exa
     - fd
     - fzf
     - gimp
@@ -45,6 +46,7 @@
     - make
     - mplayer
     - neovim
+    - nerd-fonts
     - nord-iterm2
     - nvm
     - pipx
