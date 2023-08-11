@@ -5,6 +5,11 @@
     state: present
   become: "{{ become_for_package }}"
 
+- name: Ensure ~/.config/gitui
+  ansible.builtin.file:
+    path: ~/.config/gitui
+    state: directory
+
 - name: Copy ~/.config/gitui/key_bindings.ron
   ansible.builtin.copy:
     src: .config/gitui/key_bindings.ron
