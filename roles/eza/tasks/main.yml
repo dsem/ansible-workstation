@@ -13,6 +13,6 @@
 
 - name: Copy eza alias
   ansible.builtin.copy:
-    dest: ~/.bashrc.d/50-exa.sh
+    dest: ~/.bashrc.d/50-eza.sh
     content: alias ls="eza-wrapper.sh"
     mode: "0664"
