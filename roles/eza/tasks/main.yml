@@ -1,0 +1,18 @@
+---
+- name: Install eza package
+  ansible.builtin.package:
+    name: eza
+    state: present
+  become: "{{ become_for_package }}"
+
+- name: Copy ~/.local/bin/eza-wrapper.sh
+  ansible.builtin.copy:
+    src: .local/bin/eza-wrapper.sh
+    dest: ~/.local/bin/eza-wrapper.sh
+    mode: "0775"
+
+- name: Copy eza alias
+  ansible.builtin.copy:
+    dest: ~/.bashrc.d/50-exa.sh
+    content: alias ls="eza-wrapper.sh"
+    mode: "0664"

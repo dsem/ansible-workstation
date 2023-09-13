@@ -16,7 +16,7 @@ lnk=0
 # Show file git status automatically (can cause a slight delay in large repo trees)
 git=1
 # Show icons
-ico=0
+ico=1
 # Show column headers
 hed=0
 # Group directories first in long listing by default
@@ -111,4 +111,4 @@ shift "$((OPTIND - 1))"
 (( git == 1 )) && \
   [[ $(git -C "${*:-.}" rev-parse --is-inside-work-tree) == true ]] 2>/dev/null && exa_opts+=(--git)
 
-exa --color-scale "${exa_opts[@]}" "$@"
+eza --color-scale "${exa_opts[@]}" "$@"
