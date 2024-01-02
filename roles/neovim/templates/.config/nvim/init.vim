@@ -40,6 +40,9 @@ Plug 'tpope/vim-fugitive'
 " Gitlab
 Plug 'shumphrey/fugitive-gitlab.vim'
 
+" Helm
+Plug 'towolf/vim-helm'
+
 " Nicer keyboard shortcuts
 Plug 'tpope/vim-unimpaired'
 
@@ -134,6 +137,7 @@ require("mason-lspconfig").setup {
         "ansiblels",
         "bashls",
         "dockerls",
+        "helm_ls",
         "jsonls",
         "lua_ls",
         "pyright",

@@ -1,0 +1,5 @@
+---
+- name: Install NearDrop package
+  package:
+    name: grishka/grishka/neardrop
+    state: present
