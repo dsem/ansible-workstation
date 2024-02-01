@@ -1,7 +1,7 @@
 ---
-- name: Install poetry
+- name: Install poetry with pipx
   shell:
-    cmd: curl -sSL https://install.python-poetry.org | python3 - -y
+    cmd: pipx install poetry
     creates: ~/.local/bin/poetry
 
 - name: Include distribution-specific tasks
@@ -15,4 +15,4 @@
 
 - name: Set the poetry_virtualenv_path as a fact
   set_fact:
-    poetry_virtualenv_path : "{{ poetry_virtualenv_path.stdout }}"
+    poetry_virtualenv_path: "{{ poetry_virtualenv_path.stdout }}"
