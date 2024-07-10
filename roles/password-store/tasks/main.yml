@@ -1,6 +1,12 @@
 ---
 - name: Install password-store
-  package:
+  ansible.builtin.package:
     name: pass
     state: present
   become: "{{ become_for_package }}"
+
+- name: Git clone git@{{ password_store_repository }}
+  ansible.builtin.git:
+    repo: git@{{ password_store_repository }}
+    dest: ~/.password-store
+    accept_newhostkey: true

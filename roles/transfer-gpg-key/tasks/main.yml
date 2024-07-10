@@ -1,0 +1,75 @@
+---
+- name: Include distribution-specific variables
+  ansible.builtin.include_vars:
+    file: "{{ os }}.yml"
+
+- name: Export the local public gpg key
+  ansible.builtin.shell:
+    cmd: >
+      gpg
+      --export {{ personal_email }}
+      > /tmp/pass-key.gpg
+    creates: /tmp/pass-key.gpg
+  delegate_to: localhost
+
+- name: Export the local private gpg key
+  ansible.builtin.shell:
+    cmd: >
+      gpg
+      --pinentry-mode loopback
+      --passphrase {{ gpg_keyring_pass }}
+      --export-secret-key {{ personal_email }}
+      > /tmp/pass-key-secret.gpg
+    creates: /tmp/pass-key-secret.gpg
+  delegate_to: localhost
+
+- name: Copy the public and private keys to the remote machine
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ item }}"
+  loop:
+    - /tmp/pass-key.gpg
+    - /tmp/pass-key-secret.gpg
+
+- name: Remove the public public key from the local machine
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /tmp/pass-key.gpg
+    - /tmp/pass-key-secret.gpg
+  delegate_to: localhost
+
+- name: Import the public key
+  ansible.builtin.shell:
+    cmd: >
+      . {{ bash_config }} &&
+      {{ gpg }}
+      --import /tmp/pass-key.gpg
+
+- name: Import the private key
+  ansible.builtin.shell:
+    cmd: >
+      . {{ bash_config }} &&
+      {{ gpg }}
+      --batch
+      --import /tmp/pass-key-secret.gpg
+
+- name: Remove the private key from the remote machine
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /tmp/pass-key.gpg
+    - /tmp/pass-key-secret.gpg
+
+- name: Trust the imported key
+  ansible.builtin.shell:
+    cmd: >
+      set -o pipefail &&
+      . {{ bash_config }} &&
+      echo -e "5\ny\n" |
+      gpg
+      --command-fd 0
+      --edit-key {{ personal_email }}
+      trust

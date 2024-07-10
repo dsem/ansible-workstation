@@ -1,0 +1,22 @@
+---
+- name: Ensure ~/.ssh
+  file:
+    path: ~/.ssh
+    state: directory
+    mode: "700"
+
+- name: Generate SSH key pair
+  openssh_keypair:
+    path: ~/.ssh/id_ed25519
+    type: ed25519
+    state: present
+  register: ssh
+
+- block:
+    - name: Add public key to gitlab
+      shell: GITLAB_HOST=https://gitlab.com glab ssh-key add --title "$(date)" <<< "{{ ssh.public_key }}"
+
+    - name: Add public key to github
+      shell: gh ssh-key add --title "$(date)" <<< "{{ ssh.public_key }}"
+  when: ssh is changed
+  delegate_to: 127.0.0.1

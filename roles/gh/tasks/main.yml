@@ -1,0 +1,6 @@
+---
+- name: Install gh package
+  package:
+    name: gh
+    state: present
+  become: "{{ become_for_package }}"
