@@ -1,28 +1,19 @@
 ---
 - name: Install the latest version of bash
-  package:
+  ansible.builtin.package:
     name: bash
     state: present
   become: "{{ become_for_package }}"
 
-- name: Enable brew-install bash as a shell
-  lineinfile:
-    path: /etc/shells
-    insertafter: EOF
-    line: /usr/local/bin/bash
-  become: true
-
 - name: Store the brew prefix
-  command: brew --prefix
+  ansible.builtin.shell:
+  cmd: >
+    . {{ bash_config }} &&
+    brew --prefix
   register: brew_prefix_command
+  changed_when: false
 
-- name: Append {{ brew_prefix_command.stdout }}/bin/bash to /etc/shells
-  lineinfile:
-    path: /etc/shells
-    line: "{{ brew_prefix_command.stdout }}/bin/bash"
-    insertafter: EOF
-  become: true
-
-- name: Execute chsh -s /usr/local/bin/bash
-  shell:
-    cmd: chsh -s "{{ brew_prefix_command.stdout }}/bin/bash"
+- name: Set the default shell to bash
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: "{{ brew_prefix_command.stdout }}/bin/bash"
