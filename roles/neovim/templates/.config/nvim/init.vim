@@ -39,6 +39,8 @@ Plug 'tpope/vim-fugitive'
 
 " Gitlab
 Plug 'shumphrey/fugitive-gitlab.vim'
+let g:fugitive_gitlab_domains = ['{{ work_git_repository }}']
+let g:gitlab_api_keys = {'{{ work_git_repository }}': '{{ lookup('passwordstore', 'FP/gitlab-access-token') }}'}
 
 " Helm
 Plug 'towolf/vim-helm'
