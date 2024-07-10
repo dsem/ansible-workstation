@@ -1,0 +1,13 @@
+---
+- name: Run debug command
+  ansible.builtin.shell:
+    cmd: >
+      . {{ bash_config }} &&
+      gpg
+      --version
+  register: debug_output
+  changed_when: false
+
+- name: Print debug output
+  ansible.builtin.debug:
+    msg: "{{ debug_output.stdout }}"
