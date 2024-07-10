@@ -27,19 +27,20 @@ fedora_version: 37
 
 # https://www.gimp.org/downloads/
 gimp_major_version: 2.10
-gimp_version: 2.10.14
+gimp_version: 2.10.38
 
 # https://cloud.google.com/sdk/docs/install-sdk
-google_cloud_sdk_version: 430.0.0
+google_cloud_sdk_version: 483.0.0
 
 # https://github.com/gphotosuploader/gphotos-uploader-cli/releases
-gphotos_uploader_cli_version: 3.5.0
+gphotos_uploader_cli_version: 4.5.0
 
 # https://www.python.org/downloads/
 python_versions:
-  - 3.11.3
-  - 3.10.11
-  - 3.9.16
+  - 3.12.4
+  - 3.11.9
+  - 3.10.14
+  - 3.9.19
 
 # https://slack.com/downloads/instructions/fedora  (click the "Try Again")
 slack_version: 4.32.122
@@ -47,7 +48,7 @@ slack_rpm_version: 0.1
 slack_distribution: el8
 
 # https://github.com/GoogleCloudPlatform/terraformer/releases
-terraformer_version: 0.8.22
+terraformer_version: 0.8.24
 
 # https://github.com/sachaos/viddy/releases
-viddy_version: 0.3.6
+viddy_version: 0.4.0
