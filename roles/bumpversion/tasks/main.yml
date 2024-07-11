@@ -1,6 +1,14 @@
 ---
-- name: Install bumpversion
+- name: Install bump-my-version with pipx
+  ansible.builtin.shell:
+    cmd: pipx install bump-my-version
+    creates: ~/.local/pipx/venv/bump-my-version
+
+- name: Ensure bumpversion and bump2version are absent
   package:
     name: bumpversion
-    state: present
+    state: absent
   become: "{{ become_for_package }}"
+  loop:
+    - bumpversion
+    - bump2version
