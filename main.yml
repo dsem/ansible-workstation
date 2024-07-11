@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Run the workstation playbook
+  hosts: localhost
   roles:
     # Bash role should be run in pre-main.yml
     # bash
@@ -48,6 +49,7 @@
     - neovim
     - nerd-fonts
     - nord-iterm2
+    - notion
     - nvm
     - pipx
     - pixelbook

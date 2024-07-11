@@ -1,0 +1,10 @@
+---
+- name: Download the notion app
+  ansible.builtin.get_url:
+    url: https://www.notion.so/desktop/mac-universal/download
+    dest: /tmp/Notion.dmg
+
+- name: Open /tmp/Notion.dmg
+  ansible.builtin.shell:
+    cmd: >
+      open /tmp/Notion.dmg
