@@ -1,11 +1,12 @@
 ---
-- name: Run tasks for MacOS
-  when: os == 'macos'
+- name: Run macpaste install steps for macos
+  when: os == "macos"
   block:
     - name: Git clone macos-active-window
-      git:
+      ansible.builtin.git:
         repo: git@github.com:dsem/macos-active-window.git
         dest: ~/.local/src/macos-active-window
+        accept_newhostkey: true
 
     # The pipx module seems to be broken; it requires pipx to be installed in
     # the ansible python path set up by home brew (even though pipx is
@@ -17,12 +18,12 @@
     #     state: present
 
     - name: Run pipx install ~/.local/src/macos-active-window
-      command:
+      ansible.builtin.command:
         cmd: pipx install ~/.local/src/macos-active-window
         creates: ~/.local/bin/get-active-window
 
     - name: Git clone macpaste
-      git:
+      ansible.builtin.git:
         repo: git@github.com:dsem/macpaste.git
         dest: ~/.local/src/macpaste
 
