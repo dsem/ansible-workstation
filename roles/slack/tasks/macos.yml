@@ -1,5 +1,13 @@
 ---
+# My employer pre-installs Slack on my workstation so
+# check if it exists before installing it
+- name: stat Applications/Slack.app
+  ansible.builtin.stat:
+    path: Applications/Slack.app
+  register: st
+
 - name: Install Slack package
   homebrew_cask:
     name: slack
     state: present
+  when: not st.stat.exists

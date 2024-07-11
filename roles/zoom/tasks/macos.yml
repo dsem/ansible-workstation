@@ -1,5 +1,13 @@
 ---
+# My employer pre-installs Zoom on my workstation so
+# check if it exists before installing it
+- name: stat /Applications/zoom.us.app
+  ansible.builtin.stat:
+    path: /Applications/zoom.us.app
+  register: st
+
 - name: Install zoom package
   homebrew_cask:
     name: zoom
     state: present
+  when: not st.stat.exists

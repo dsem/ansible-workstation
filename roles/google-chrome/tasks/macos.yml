@@ -1,5 +1,13 @@
 ---
-- name: Install Google Chrome package
+# My employer pre-installs Google Chrome on my workstation so
+# check if it exists before installing it
+- name: stat /Applications/Google Chrome.app
+  ansible.builtin.stat:
+    path: /Applications/Google Chrome.app
+  register: st
+
+- name: Install google-chrome package
   homebrew_cask:
     name: google-chrome
     state: present
+  when: not st.stat.exists
