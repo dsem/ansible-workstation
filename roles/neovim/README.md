@@ -38,6 +38,6 @@ Install treesitter configurations with `:TSInstall`:
 ### Setup and enable Copilot
 
 ```
-:Copilot Setup
+:Copilot setup
 :Copilot enable
 ```

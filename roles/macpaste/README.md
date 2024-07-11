@@ -2,7 +2,7 @@
 
 ## Manual Followup
 
-Go to System Preferences -> Security & Privacy -> Input Monitoring
+Go to System Preferences -> Privacy & Security -> Input Monitoring
 
 Select Accessibility and add ~/.local/bin/macpaste
 

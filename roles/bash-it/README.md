@@ -1,6 +1,6 @@
 # Bash-It!
 
-## Configuration
+## Manual Followup
 
 Enable plugins and aliases:
 
