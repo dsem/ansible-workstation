@@ -150,6 +150,16 @@ iTerm2 -> Settings -> Pointer; select "Focus follows mouse"
 
 Open Raycast and follow the steps to setup the app.
 
+### Install Extensions
+
+Go to Extensions -> "+" -> "Install from store"
+
+Install the following extensions:
+
+* Google Workspace
+* Google Chrome
+* Spotify Player
+
 
 ## Macpaste
 
@@ -175,6 +185,21 @@ Logout and log back in again.
    Click the BTT icon -> Register
 
    Download the BetterTouchTool license by searching BetterTouchTool in gmail
+
+
+## Slack
+
+### Sign into the workspaces
+
+1. Open slack and log in with Google.
+
+2. Click on the Workspace icon -> "Add a workspace" -> Sign in with the other Google
+
+### Fix preferences
+
+1. CLick on the user profile icon in the lower-left -> Preferences ->  Accessibility" -> Keywoard
+
+Press <up> to Edit your last message.
 
 
 ## Neovim
