@@ -21,3 +21,6 @@ BetterTouchTool provides
    Click the BTT icon -> Register
 
    Download the BetterTouchTool license by searching BetterTouchTool in gmail
+
+4. Click on the kebab menu on the top-right -> Basic -> General -> check
+   "Launch BetterTouchTool on startup.
