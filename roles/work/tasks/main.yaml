@@ -1,6 +1,18 @@
 ---
-- name: pip install keyrings.google-artifactregistry-auth
+- name: Run pip install keyrings.google-artifactregistry-auth
   ansible.builtin.pip:
     name: keyrings.google-artifactregistry-auth
     extra_args: '--index-url https://pypi.org/simple'
     state: present
+
+- name: Run pip3 install keyrings.google-artifactregistry-auth
+  ansible.builtin.pip:
+    name: keyrings.google-artifactregistry-auth
+    extra_args: '--index-url https://pypi.org/simple'
+    executable: pip3
+    state: present
+
+- name: Run poetry self add "keyrings.google-artifactregistry-auth"
+  ansible.builtin.command:
+    cmd: poetry self add "keyrings.google-artifactregistry-auth"
+    creates: ~/.local/pipx/venvs/poetry/lib/python3.12/site-packages/google_artifactregistry_auth
