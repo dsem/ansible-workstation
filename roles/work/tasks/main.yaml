@@ -1,0 +1,6 @@
+---
+- name: pip install keyrings.google-artifactregistry-auth
+  ansible.builtin.pip:
+    name: keyrings.google-artifactregistry-auth
+    extra_args: '--index-url https://pypi.org/simple'
+    state: present

@@ -69,5 +69,6 @@
     - tox
     - viddy
     - wget
+    - work
     - zoom
   connection: localhost
