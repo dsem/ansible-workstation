@@ -8,7 +8,14 @@
 gcloud init
 ```
 
-2. Set up kubectl
+2. Enable access to application default credentials
+
+```
+gcloud auth application-default login
+```
+
+
+3. Set up kubectl
 
 ```
 gcloud container clusters get-credentials [CLUSTER_NAME]
