@@ -63,6 +63,7 @@
     - ripgrep
     - rpmfusion
     - slack
+    - shellcheck
     - tadpoles-push
     - terraform
     - terraformer

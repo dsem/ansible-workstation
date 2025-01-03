@@ -1,0 +1,6 @@
+---
+- name: Install shellcheck package
+  package:
+    name: shellcheck
+    state: present
+  become: "{{ become_for_package }}"
