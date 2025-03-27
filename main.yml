@@ -7,6 +7,7 @@
     # Rosetta is probably a dependency of a lot of them, but it's not worth
     # tracking down which ones and listing it within ansible
     - rosetta
+    - aldente
     - aws-cli
     - bash-completion
     - bash-it

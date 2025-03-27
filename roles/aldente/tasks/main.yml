@@ -1,0 +1,10 @@
+---
+- name: Download aldente package
+  ansible.builtin.get_url:
+    url: https://apphousekitchen.com/aldente/AlDente-Pro.dmg
+    dest: /tmp/AlDente-Pro.dmg
+    mode: "0755"
+
+- name: Open aldente package
+  ansible.builtin.command:
+    cmd: open /tmp/AlDente-Pro.dmg
