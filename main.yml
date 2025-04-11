@@ -18,7 +18,8 @@
     - connectiq-sdk
     - coreutils
     - delta
-    - displaylink
+    # Not actively using displaylink anywhere at the moment
+    # - displaylink
     - docker
     - docker-compose
     - eza
