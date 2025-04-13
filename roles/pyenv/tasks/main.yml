@@ -11,4 +11,5 @@
   shell:
     cmd: source {{ bash_config }}; pyenv install {{ item }}
     creates: ~/.pyenv/versions/{{ item }}
+    executable: /bin/bash
   loop: "{{ python_versions }}"

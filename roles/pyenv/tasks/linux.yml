@@ -1,13 +1,11 @@
 ---
 - name: Run curl https://pyenv.run | bash
-  shell: 
+  shell:
     cmd: curl https://pyenv.run | bash
     creates: ~/.pyenv
 
 - name: Install Python build dependencies
-  command: dnf builddep -y python3
-  args:
-    warn: false
+  ansible.builtin.command: dnf builddep -y python3
   register: dnf_result
   become: yes
   changed_when: '"Nothing to do" not in dnf_result.stdout'
