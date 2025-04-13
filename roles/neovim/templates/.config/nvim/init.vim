@@ -34,13 +34,19 @@ nmap <silent> <leader>g :TestVisit<CR>
 " Code formatting
 Plug 'sbdchd/neoformat'
 
+" Copilot
+Plug 'github/copilot'
+
 " Git
 Plug 'tpope/vim-fugitive'
 
+
+{% if work_git_repository is defined %}
 " Gitlab
 Plug 'shumphrey/fugitive-gitlab.vim'
 let g:fugitive_gitlab_domains = ['{{ work_git_repository }}']
 let g:gitlab_api_keys = {'{{ work_git_repository }}': '{{ lookup('passwordstore', 'FP/gitlab-access-token') }}'}
+{% endif %}
 
 " Helm
 Plug 'towolf/vim-helm'
