@@ -1,0 +1,13 @@
+---
+- name: Run npm install -g @google/gemini-cli
+  ansible.builtin.npm:
+    name: '@google/gemini-cli'
+    global: true
+    state: present
+
+- name: Set GOOGLE_CLOUD_PROJECT_ID bashrc environment variable
+  ansible.builtin.copy:
+    dest: ~/.bashrc.d/gemini-cli.sh
+    content: |
+      export GOOGLE_CLOUD_PROJECT={{ google_cloud_project }}
+    mode: '0644'
