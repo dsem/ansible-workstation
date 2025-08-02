@@ -1,0 +1,5 @@
+---
+- name: Install 1Password package
+  community.general.homebrew_cask:
+    name: 1password
+    state: present

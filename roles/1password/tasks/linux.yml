@@ -1,0 +1,25 @@
+---
+- name: Import 1Password rpm key
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://downloads.1password.com/linux/keys/1password.asc
+  become: true
+
+- name: Copy 1Password dnf repository
+  ansible.builtin.copy:
+    dest: /etc/yum.repos.d/1password.repo
+    content: |
+      [1password]
+      name=1Password Stable Channel
+      baseurl=https://downloads.1password.com/linux/rpm/stable/$basearch
+      enabled=1
+      gpgcheck=1
+      repo_gpgcheck=1
+      gpgkey=https://downloads.1password.com/linux/keys/1password.asc
+  become: true
+
+- name: Install 1Password package
+  ansible.builtin.package:
+    name: 1password
+    state: present
+  become: true
