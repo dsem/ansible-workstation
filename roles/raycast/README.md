@@ -13,3 +13,6 @@ Install the following extensions:
 * Google Workspace
 * Google Chrome
 * Spotify Player
+* Jira
+* Notion
+* Slack
