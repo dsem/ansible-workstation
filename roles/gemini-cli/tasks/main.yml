@@ -9,5 +9,5 @@
   ansible.builtin.copy:
     dest: ~/.bashrc.d/gemini-cli.sh
     content: |
-      export GOOGLE_CLOUD_PROJECT={{ google_cloud_project }}
+      export GOOGLE_CLOUD_PROJECT={{ google_cloud_project | default("") }}
     mode: '0644'
