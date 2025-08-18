@@ -17,6 +17,7 @@
     - bumpversion
     - connectiq-sdk
     - coreutils
+    - cursor-agent
     - delta
     # Not actively using displaylink anywhere at the moment
     # - displaylink

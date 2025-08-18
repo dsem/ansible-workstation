@@ -1,0 +1,14 @@
+---
+- name: Ensure ~/.local/bin exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/bin"
+    state: directory
+    mode: "0755"
+
+- name: Install cursor-agent via official script
+  ansible.builtin.shell: |
+    set -euo pipefail
+    curl https://cursor.com/install -fsS | bash
+  args:
+    executable: /bin/bash
+    creates: "{{ ansible_env.HOME }}/.local/bin/cursor-agent"
