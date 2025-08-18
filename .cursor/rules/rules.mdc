@@ -1,0 +1,10 @@
+Title: Keep lists alphabetized
+
+Rule:
+- Ensure unordered lists of items (e.g., arrays under `roles:` in Ansible playbooks or bullet lists in Markdown) are kept in case-insensitive alphabetical order.
+- When adding, removing, or editing items in such lists, sort them A→Z.
+- Do not reorder lists where order is semantically meaningful (e.g., steps in a procedure, dependency-ordered tasks). If uncertain, ask.
+
+Examples:
+- Ansible `roles:` lists should be sorted alphabetically.
+- Markdown bullet lists that enumerate tools or packages should be sorted unless an order is explicitly indicated.
