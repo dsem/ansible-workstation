@@ -9,6 +9,13 @@ Install [Visual Studio Code](https://code.visualstudio.com/) in order to
 initialize new projects.
 
 
+## Google Chrome
+
+1. Log into Google Chrome and enable sync
+
+2. Press `Ctrl` + ⌥ + I, click on the kebab menu, and select "Bottom"
+
+
 ## Docker
 
 Open the docker application via Launchpad to accept the terms and bootstrap the
@@ -125,6 +132,28 @@ bash-it enable completion ssh docker docker-compose gcloud
 ```
 
 
+## Google Cloud SDK
+
+1. Initialize the Google Cloud SDK
+
+```
+gcloud init
+```
+
+2. Enable access to application default credentials
+
+```
+gcloud auth application-default login
+```
+
+
+3. Set up kubectl
+
+```
+gcloud container clusters get-credentials [CLUSTER_NAME]
+```
+
+
 ## iTerm2
 
 ### Import the curated iTerm2 profile
@@ -146,6 +175,12 @@ Enable focus follows mouse:
 iTerm2 -> Settings -> Pointer; select "Focus follows mouse"
 
 
+## Work
+
+1. Verify that the location of poetry's self venv is correct and the `changes:`
+   directive in the yaml is accurate for this system
+
+
 ## Raycast
 
 Open Raycast and follow the steps to setup the app.
@@ -159,6 +194,9 @@ Install the following extensions:
 * Google Workspace
 * Google Chrome
 * Spotify Player
+* Jira
+* Notion
+* Slack
 
 
 ## Macpaste
@@ -168,6 +206,11 @@ Go to System Preferences -> Privacy & Security -> Input Monitoring
 Select Accessibility and add ~/.local/bin/macpaste
 
 Logout and log back in again.
+
+
+## Mods
+
+Run `mods --setings` and set the model to google gemini
 
 
 ## BetterTouchTool
@@ -185,6 +228,9 @@ Logout and log back in again.
    Click the BTT icon -> Register
 
    Download the BetterTouchTool license by searching BetterTouchTool in gmail
+
+4. Click on the kebab menu on the top-right -> Basic -> General -> check
+   "Launch BetterTouchTool on startup.
 
 
 ## Slack

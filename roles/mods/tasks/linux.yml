@@ -1,0 +1,23 @@
+---
+- name: Install mods on Fedora
+  block:
+    - name: Add Charm GPG key
+      rpm_key:
+        state: present
+        key: https://repo.charm.sh/yum/gpg.key
+
+    - name: Add Charm repository
+      yum_repository:
+        name: charm
+        description: Charm
+        baseurl: https://repo.charm.sh/yum/
+        enabled: yes
+        gpgcheck: yes
+        gpgkey: https://repo.charm.sh/yum/gpg.key
+
+    - name: Install mods
+      package:
+        name: mods
+        state: present
+  become: yes
+  when: ansible_distribution == 'Fedora'

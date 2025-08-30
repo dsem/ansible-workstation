@@ -1,9 +1,9 @@
 ---
 - name: Included distribution-specific tasks
-  include_tasks: "{{ os }}.yml"
+  ansible.builtin.include_tasks: "{{ os }}.yml"
 
 - name: Run ~/.local/src/google-cloud-sdk/install.sh
-  command:
+  ansible.builtin.command:
     cmd: |
       ~/.local/src/google-cloud-sdk/install.sh
         --usage-reporting false
@@ -16,6 +16,14 @@
     creates: ~/.bashrc.d/50-google-cloud-sdk.sh
 
 - name: Copy ~/.bigqueryrc
-  copy:
+  ansible.builtin.copy:
     src: .bigqueryrc
     dest: ~/.bigqueryrc
+    mode: '0644'
+
+- name: export GOOGLE_API_KEY
+  ansible.builtin.copy:
+    dest: ~/.bashrc.d/50-google-api-key.sh
+    content: |
+      export GOOGLE_API_KEY={{ google_api_key }}
+    mode: '0644'
