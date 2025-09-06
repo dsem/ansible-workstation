@@ -1,6 +1,6 @@
 let mapleader = ' '
 
-call plug#begin('~/.config/nvim/autoload')
+call plug#begin()
 
 """"""""Plugins affecting all languages """"""""""
 
@@ -11,17 +11,20 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" master is frozen---consider switching to main when
+" nvim-treesitter-textobjects has a stable main branch
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'master', 'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-source $HOME/.config/nvim/vim/telescope.vim
 
 " Snippets
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'petertriho/cmp-git'
 
 " Test execution
 Plug 'vim-test/vim-test'
@@ -34,19 +37,13 @@ nmap <silent> <leader>g :TestVisit<CR>
 " Code formatting
 Plug 'sbdchd/neoformat'
 
-" Copilot
-Plug 'github/copilot'
-
 " Git
 Plug 'tpope/vim-fugitive'
 
-
-{% if work_git_repository is defined %}
 " Gitlab
 Plug 'shumphrey/fugitive-gitlab.vim'
-let g:fugitive_gitlab_domains = ['{{ work_git_repository }}']
-let g:gitlab_api_keys = {'{{ work_git_repository }}': '{{ lookup('passwordstore', 'FP/gitlab-access-token') }}'}
-{% endif %}
+let g:fugitive_gitlab_domains = ['https://gitlab.s.fpint.net']
+let g:gitlab_api_keys = {'https://gitlab.s.fpint.net': 'RsTGh3cg6FDA6sBksAca'}
 
 " Helm
 Plug 'towolf/vim-helm'
@@ -134,45 +131,12 @@ Plug 'junegunn/seoul256.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'arcticicestudio/nord-vim'
 
-" initialize plugin system
 call plug#end()
 
-" initialize Lua Configs
-lua << EOF
-require("mason").setup()
-require("mason-lspconfig").setup {
-    ensure_installed = {
-        "ansiblels",
-        "bashls",
-        "dockerls",
-        "helm_ls",
-        "jsonls",
-        "lua_ls",
-        "pyright",
-        "taplo",
-        "terraformls",
-        "vimls",
-        "yamlls"
-    }
-}
-require("mason-lspconfig").setup_handlers {
-    -- The first entry (without a key) will be the default handler
-    -- and will be called for each installed server that doesn't have
-    -- a dedicated handler.
-    function (server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {}
-    end
-    -- end,
-    -- Next, you can provide a dedicated handler for specific servers.
-    -- For example, a handler override for the `rust_analyzer`:
-    -- ["rust_analyzer"] = function ()
-    --     require("rust-tools").setup {}
-    -- end
-}
-
-require('nvim-cmp')
-EOF
-
+" initialize plugin system
+lua require('plugins.lsp').setup()
+lua require('plugins.treesitter').setup()
+lua require('plugins.cmp').setup()
 
 """"""""""""" Settings """""""""""
 " Enable python3 in neovim
@@ -193,6 +157,7 @@ setlocal number
 
 autocmd Filetype json setlocal tabstop=2 shiftwidth=2
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
+autocmd Filetype lua setlocal tabstop=2 shiftwidth=2
 
 " Disable folding by default
 set nofoldenable
