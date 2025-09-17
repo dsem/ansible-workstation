@@ -9,6 +9,17 @@ Install [Visual Studio Code](https://code.visualstudio.com/) in order to
 initialize new projects.
 
 
+## Logitech
+
+1. Remove the Logi Options+ Installer
+
+   ```
+   rm /tmp/logioptionsplus_installer.app
+   ```
+
+2. Configure the mouse middle button to have the action "Middle Button"
+
+
 ## Google Chrome
 
 1. Log into Google Chrome and enable sync
