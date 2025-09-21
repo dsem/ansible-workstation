@@ -1,10 +1,12 @@
 ---
-- name: Download and open Logi Options+
-  unarchive:
-    src: https://download01.logi.com/web/ftp/pub/techsupport/optionsplus/logioptionsplus_installer.zip
-    dest: /tmp
-    remote_src: true
-    creates: /tmp/logioptionsplus_installer.app
+- block:
+    - name: Download and open Logi Options+
+      unarchive:
+        src: https://download01.logi.com/web/ftp/pub/techsupport/optionsplus/logioptionsplus_installer.zip
+        dest: /tmp
+        remote_src: true
+        creates: /tmp/logioptionsplus_installer.app
 
-- name: Open /tmp/logioptionsplus_installer.app
-  command: open /tmp/logioptionsplus_installer.app
+    - name: Open /tmp/logioptionsplus_installer.app
+      command: open /tmp/logioptionsplus_installer.app
+  when: os == "linux"
