@@ -1,0 +1,8 @@
+---
+- name: Download eksctl binary
+  ansible.builtin.unarchive:
+    src: "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_{{ ansible_system }}_{{ ansible_architecture }}.tar.gz"
+    dest: ~/.local/bin/
+    remote_src: true
+    mode: '0755'
+    creates: ~/.local/bin/eksctl

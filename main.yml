@@ -23,6 +23,7 @@
     # - displaylink
     - docker
     - docker-compose
+    - eksctl
     - eza
     - fd
     - fzf
