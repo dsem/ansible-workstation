@@ -179,3 +179,14 @@ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 """""""" MonkeyC Config """"""""""
 autocmd FileType monkeyc setlocal commentstring=//\ %s
+
+"""""""" Additional CoPilot Config """"""""""
+augroup DisableCopilotSensitive
+  autocmd!
+  " Disable Copilot for files created by the 'pass' password manager
+  " pass usually creates temp files in /dev/shm or /tmp starting with 'pass.'
+  autocmd BufRead,BufNewFile /dev/shm/pass*,/tmp/pass*,*/pass.*/* let b:copilot_enabled = 0
+
+  " Disable Copilot for sensitive file types
+  autocmd BufRead,BufNewFile .env,.env.*,*.pem,*.key let b:copilot_enabled = 0
+augroup END
