@@ -172,7 +172,7 @@ set inccommand=split
 inoremap jj <esc>
 
 """""""""" YAML Config """"""""""""
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab cursorcolumn
 
 " Automatically strip whitespaces upon save
 autocmd BufWritePre <buffer> :%s/\s\+$//e
