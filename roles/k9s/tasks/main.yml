@@ -1,4 +1,8 @@
 ---
+- name: Include os specific variables
+  ansible.builtin.include_vars:
+    file: "{{ os }}.yml"
+
 - name: Install k9s package
   ansible.builtin.package:
     name: k9s
@@ -7,5 +11,12 @@
 - name: Install nord theme
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/derailed/k9s/refs/heads/master/skins/nord.yaml
-    dest: ~/Library/Application Support/k9s/skins/nord.yaml
+    dest: "{{ k9s_config_home }}/skins/nord.yaml"
     mode: '0644'
+
+- name: Set k9s skin to nord
+  ansible.builtin.lineinfile:
+    path: "{{ k9s_config_home }}/config.yaml"
+    regexp: '^(\s*)skin:.*'
+    line: '\1skin: nord'
+    backrefs: true
