@@ -45,6 +45,7 @@
     - jl
     - jless
     - jq
+    - k9s
     - karabiner-elements
     - keybindings
     - licensed

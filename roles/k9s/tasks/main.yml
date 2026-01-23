@@ -1,0 +1,11 @@
+---
+- name: Install k9s package
+  ansible.builtin.package:
+    name: k9s
+    state: present
+
+- name: Install nord theme
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/derailed/k9s/refs/heads/master/skins/nord.yaml
+    dest: ~/Library/Application Support/k9s/skins/nord.yaml
+    mode: '0644'
