@@ -15,8 +15,13 @@ function M.setup()
           ["if"] = "@function.inner",
           ["ac"] = "@class.outer",
           ["ic"] = "@class.inner",
-          ["a,"] = "@parameter.outer", -- These work for arguments, too
-          ["i,"] = "@parameter.inner",
+          ["a,"] = { query = "@parameter.outer", desc = "outside a parameter" },
+          ["i,"] = { query = "@parameter.inner", desc = "inside a parameter" },
+          ["al"] = { query = "@loop.outer", desc = "around a loop" },
+          ["il"] = { query = "@loop.inner", desc = "inside a loop" },
+          ["ai"] = { query = "@conditional.outer", desc = "around a conditional" },
+          ["ii"] = { query = "@conditional.inner", desc = "inside a conditional" },
+          ["a/"] = { query = "@comment.outer", desc = "around a comment" },
         },
       },
       move = {
@@ -31,6 +36,18 @@ function M.setup()
           ["[f"] = "@function.outer",
           ["[c"] = "@class.outer",
           ["[p"] = "@parameter.inner",
+        },
+      },
+
+      -- === 4. INCREMENTAL SELECTION ===
+      -- A powerful feature to progressively select larger syntax nodes
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<CR>",      -- Key to start selection
+          node_incremental = "<CR>",   -- Key to expand selection to the next node
+          scope_incremental = "<S-CR>",-- Key to expand to the current scope (e.g. function)
+          node_decremental = "<BS>",   -- Key to shrink selection
         },
       },
     },
