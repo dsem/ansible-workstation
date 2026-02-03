@@ -33,6 +33,7 @@
     - gitui
     - gnome
     - gnome-terminal
+    - gnu-sed
     - google-chrome
     - google-cloud-sdk
     - gphotos-uploader-cli

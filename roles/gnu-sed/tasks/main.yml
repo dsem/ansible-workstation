@@ -1,0 +1,7 @@
+---
+- name: Install gnu-sed package
+  package:
+    name: gnu-sed
+    state: present
+  become: "{{ become_for_package }}"
+  when: os == "macos"
