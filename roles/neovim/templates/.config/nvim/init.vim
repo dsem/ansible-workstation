@@ -110,6 +110,7 @@ Plug 'aklt/plantuml-syntax'
 
 
 """""""" Other, non-programming plugins """"""""""
+Plug 'folke/which-key.nvim'
 
 Plug 'machakann/vim-highlightedyank'
 
