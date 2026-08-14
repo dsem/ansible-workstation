@@ -8,6 +8,7 @@
     # tracking down which ones and listing it within ansible
     - rosetta
     - aldente
+    - antigravity
     - aws-cli
     - bash-completion
     - bash-it

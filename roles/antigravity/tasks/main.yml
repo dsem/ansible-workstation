@@ -1,0 +1,11 @@
+---
+- name: Ensure ~/.local/bin exists
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.local/bin"
+    state: directory
+    mode: "0755"
+
+- name: Install antigravity CLI
+  ansible.builtin.shell: "curl -fsSL https://antigravity.google/cli/install.sh | bash"
+  args:
+    creates: "{{ ansible_user_dir }}/.local/bin/agy"
