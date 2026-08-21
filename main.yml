@@ -16,6 +16,7 @@
     - better-touch-tool
     - black
     - bumpversion
+    - claude
     - claude-cli
     - connectiq-sdk
     - coreutils

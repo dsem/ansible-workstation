@@ -1,0 +1,6 @@
+---
+- name: Install Claude desktop app package
+  homebrew_cask:
+    name: claude
+    state: present
+  when: os == 'macos'
