@@ -22,6 +22,7 @@
     - coreutils
     - cursor-agent
     - delta
+    - deskflow
     # Not actively using displaylink anywhere at the moment
     # - displaylink
     - docker
@@ -30,7 +31,6 @@
     - eza
     - fd
     - fzf
-    - gemini-cli
     - gimp
     - git
     - gitui

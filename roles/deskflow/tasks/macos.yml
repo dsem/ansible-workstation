@@ -1,0 +1,10 @@
+---
+- name: Tap deskflow/homebrew-tap
+  community.general.homebrew_tap:
+    tap: deskflow/homebrew-tap
+    state: present
+
+- name: Install deskflow cask
+  community.general.homebrew_cask:
+    name: deskflow/homebrew-tap/deskflow
+    state: present
